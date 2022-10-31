@@ -18,7 +18,7 @@ public class User {
 	@Column(name="UserId") //is a primary key
 	private long userId;
 	@Column(name="SSN")
-	private long SSN;
+	private long ssn;
 	@Column(name="FirstName")
 	private String firstName;
 	@Column(name="LastName")
@@ -41,11 +41,11 @@ public class User {
 	public void setUserId(long userId) {
 		this.userId = userId;
 	}
-	public long getSSN() {
-		return SSN;
+	public long getSsn() {
+		return ssn;
 	}
-	public void setSSN(long sSN) {
-		SSN = sSN;
+	public void setSsn(long ssn) {
+		ssn = ssn;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -93,11 +93,11 @@ public class User {
 		super();
 		
 	}
-	public User(long userId, long sSN, String firstName, String lastName, String userName, String password,
+	public User(long userId, long ssn, String firstName, String lastName, String userName, String password,
 			String email, String phone, String role) {
 		super();
 		this.userId = userId;
-		SSN = sSN;
+		this.ssn = ssn;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
@@ -108,7 +108,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", SSN=" + SSN + ", firstName=" + firstName + ", lastName=" + lastName
+		return "User [userId=" + userId + ", SSN=" + ssn + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", userName=" + userName + ", password=" + password + ", email=" + email + ", phone=" + phone
 				+ ", role=" + role + "]";
 	}
