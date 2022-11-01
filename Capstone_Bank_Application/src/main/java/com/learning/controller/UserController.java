@@ -14,15 +14,5 @@ public class UserController {
 	
 	@Autowired
 	UserRepo userRepo;
-/*
- * POST - TSION (/api/customer/:customerID/
-acocunt)
 
- */
-	//role Staff
-	//@PostMapping("/")
-	@GetMapping("/home")
-	String display() {
-		return "Welcome";
-	}
 }
