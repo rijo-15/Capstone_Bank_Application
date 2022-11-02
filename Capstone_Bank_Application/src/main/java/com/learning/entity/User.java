@@ -17,8 +17,10 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="UserId") //is a primary key
 	private long userId;
+	
 	@Column(name="SSN")
 	private long ssn;
+	
 	@Column(name="FirstName")
 	private String firstName;
 	@Column(name="LastName")
@@ -45,7 +47,7 @@ public class User {
 		return ssn;
 	}
 	public void setSsn(long ssn) {
-		ssn = ssn;
+		this.ssn = ssn;
 	}
 	public String getFirstName() {
 		return firstName;

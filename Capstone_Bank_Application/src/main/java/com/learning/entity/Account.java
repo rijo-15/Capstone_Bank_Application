@@ -1,6 +1,7 @@
 package com.learning.entity;
 
-import java.sql.Date;
+
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,7 +25,7 @@ public class Account {
 	@Column(name="approved") 
 	private boolean approved; //yes or no
 	@Column(name="date_of_creation")
-	private Date dateOfCreation;
+	private LocalDateTime dateOfCreation;
 	@Column(name="customer_id")
 	private long customerId;
 	public long getAccountNumber() {
@@ -51,10 +52,10 @@ public class Account {
 	public void setApproved(boolean approved) {
 		this.approved = approved;
 	}
-	public Date getDateOfCreation() {
+	public LocalDateTime getDateOfCreation() {
 		return dateOfCreation;
 	}
-	public void setDateOfCreation(Date dateOfCreation) {
+	public void setDateOfCreation(LocalDateTime dateOfCreation) {
 		this.dateOfCreation = dateOfCreation;
 	}
 	public long getCustomerId() {
@@ -68,13 +69,13 @@ public class Account {
 		
 	}
 	public Account(long accountNumber, AccountType accountType, double accountBalance, boolean approved,
-			Date dateOfCreation, long customerId) {
+			 long customerId) {
 		super();
 		this.accountNumber = accountNumber;
 		this.accountType = accountType;
 		this.accountBalance = accountBalance;
 		this.approved = approved;
-		this.dateOfCreation = dateOfCreation;
+		this.dateOfCreation = LocalDateTime.now();
 		this.customerId = customerId;
 	}
 	@Override
