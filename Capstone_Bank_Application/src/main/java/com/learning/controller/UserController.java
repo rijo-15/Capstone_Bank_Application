@@ -36,11 +36,12 @@ public class UserController {
 		}
 		return userRepo.findById(userId);
 	}
+	//role staff (to get multiple user info)
 	@GetMapping("/getcustomers")
 	List<User> getUser(){
 		return userRepo.findAll();
 	}
-	//Register user
+	//Register user (customer role)
 	  @PostMapping("/register")
 	  User newUser(@RequestBody User user){
 	  return userRepo.save(user); 
