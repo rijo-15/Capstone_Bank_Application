@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,4 +29,18 @@ public class AccountController {
 	List<Account> getUser(){
 		return accountRepo.findAll();
 	}
+	 //Second Method
+	  @PostMapping("/{id}/account")
+	    Account addAccount(@PathVariable("id") long id, @RequestBody Account account) {
+	   	 account.setCustomerId(id);
+	   	 return accountRepo.save(account);
+	    }
+	  
+	 
+	 //Seventh Method - GET 
+	  
+	  
+	  
+	  
+	  
 }
