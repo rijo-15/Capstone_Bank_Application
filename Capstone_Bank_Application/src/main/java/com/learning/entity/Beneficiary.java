@@ -10,6 +10,9 @@ public class Beneficiary {
 	private long accountNumber;
 	private String beneficiaryFirstName;
 	private String beneficiaryLastName;
+	private long beneficiarySsn;
+	private String beneficiaryUsername;
+	private String password;
 	public Beneficiary() {
 		super();
 		
