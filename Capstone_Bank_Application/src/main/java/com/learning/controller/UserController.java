@@ -24,17 +24,5 @@ public class UserController {
 	  
 	  return userRepo.save(user); 
 	  }
-/*
- * POST - TSION (/api/customer/:customerID/
-acocunt)
 
- */
-	//role Staff
-	//@PostMapping("/")
-	@GetMapping("/home")
-	String display() {
-		return "Welcome";
-	}
-	
-	
 }
