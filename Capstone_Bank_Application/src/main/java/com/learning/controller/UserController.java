@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.learning.entity.Account;
 import com.learning.entity.User;
+import com.learning.repo.AccountRepo;
 import com.learning.repo.UserRepo;
 import com.learning.service.UserService;
 
@@ -22,6 +24,9 @@ public class UserController {
 	
 	@Autowired
 	UserRepo userRepo;
+	
+	@Autowired
+	AccountRepo accountRepo;
 	
 	@Autowired
 	UserService userService;
@@ -45,5 +50,35 @@ public class UserController {
 	  User newUser(@RequestBody User user){
 	  return userRepo.save(user); 
 	  }
+	  
+	  //GET (/api/customer/:customerID/account/:accountID)
+	  // @GetMapping("/{customerID}/{accountype}/{accountID}")
+	  
+	  
+	  //POST(/{id}/account) - 2 
+	  
+	  @PostMapping("/{id}/account")
+	    Account addAccount(@PathVariable("id") long id, @RequestBody Account account) {
+	   	 account.setCustomerId(id);
+	   	 return accountRepo.save(account);
+	    }
+	  
+	  
+	  @GetMapping("/{customer_id}/account")
+	    List<Account> findAccountsByCustomerId(@PathVariable("customer_id") long customer_id){
+	   	 return accountRepo.findAccountsByCustomerId(customer_id);
+	   	 
+	    }
+	  
+	  
+	  @GetMapping("/getaccount") //Endpoint
+	  List<Account> getAllAccounts(){
+	   	return accountRepo.findAll();
+	  }
+
+
+
+	  
+	  
 
 }
