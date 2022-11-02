@@ -45,7 +45,7 @@ public class User {
 		return ssn;
 	}
 	public void setSsn(long ssn) {
-		ssn = ssn;
+		this.ssn = ssn;
 	}
 	public String getFirstName() {
 		return firstName;
