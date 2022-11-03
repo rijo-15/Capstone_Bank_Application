@@ -29,15 +29,8 @@ public class AccountController {
 	List<Account> getUser(){
 		return accountRepo.findAll();
 	}
-	 //Second Method
-	  @PostMapping("/{id}/account")
-	    Account addAccount(@PathVariable("id") long id, @RequestBody Account account) {
-	   	 account.setCustomerId(id);
-	   	 return accountRepo.save(account);
-	    }
-	  
-	 
-	 //Seventh Method - GET 
+	
+	
 	  
 	  
 	  
