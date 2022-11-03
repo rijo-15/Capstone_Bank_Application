@@ -29,11 +29,5 @@ public class AccountController {
 	List<Account> getUser(){
 		return accountRepo.findAll();
 	}
-	
-	
-	  
-	  
-	  
-	  
-	  
+
 }
