@@ -24,6 +24,10 @@ public class Account {
 	private double accountBalance;
 	@Column(name="approved") 
 	private boolean approved; //yes or no
+	
+	//my code
+	//private String approved;
+
 	@Column(name="date_of_creation")
 	private LocalDateTime dateOfCreation;
 	@Column(name="customer_id")
@@ -46,12 +50,23 @@ public class Account {
 	public void setAccountBalance(double accountBalance) {
 		this.accountBalance = accountBalance;
 	}
+	
 	public boolean isApproved() {
 		return approved;
 	}
 	public void setApproved(boolean approved) {
 		this.approved = approved;
 	}
+	
+	//changed code
+	/*public String getApproved() {
+		return approved;
+	}
+	public void setApproved(String approved) {
+		this.approved = approved;
+	}*/
+	
+	
 	public LocalDateTime getDateOfCreation() {
 		return dateOfCreation;
 	}
