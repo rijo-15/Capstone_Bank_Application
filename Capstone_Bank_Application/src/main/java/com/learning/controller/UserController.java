@@ -36,12 +36,12 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	// First method Register user (customer role)
+	/* First method Register user (customer role)
 		  @PostMapping("/register")
 		  User newUser(@RequestBody User user){
 		  return userRepo.save(user); 
 		  }
-		  
+		  */
 		  //Second Method
 		  @PostMapping("/{id}/account")
 		    Account addAccount(@PathVariable("id") long id, @RequestBody Account account) {
@@ -52,7 +52,17 @@ public class UserController {
 		   	 }
 		    	return null;
 		    }
-
+/*
+ * @PostMapping("/{id}/account")
+	Account addAccount(@PathVariable("id") long id, @RequestBody Account account) {
+		if(userRepo.findById(id).isPresent()) //checks if customer exists
+		{
+	     account.setCustomerId(id);
+	     return accountRepo.save(account);
+		}
+	    return null;
+	}
+ */
 		  
 		  
 	      //Third Method PUT 
@@ -75,7 +85,29 @@ public class UserController {
 		    	accountRepo.save(originalAccount);
 		    	return ResponseEntity.ok(originalAccount);
 			}
-		  
+		  /*
+		   * 
+	@PutMapping("/{customerId}/account/{accountNo}")
+    public ResponseEntity<Account> updateAccount(@PathVariable("customerId") long customerId,
+                                                   @PathVariable("accountNo") long accountNo) {
+        User originalCustomer = userRepo.findById(customerId)
+                .orElseThrow(() -> new RuntimeException("Customer does not exist customerId:" + customerId));
+        Account originalAccount = accountRepo.findById(accountNo)
+                .orElseThrow(() -> new RuntimeException("Account does not exist accountNo:" + accountNo));
+        
+        if(originalAccount.getCustomerId() == customerId)
+        {
+            originalAccount.setApproved(true);
+        }
+        else{
+           throw new RuntimeException("Account: " + accountNo + "does not belong to customerID: " + customerId);
+        }
+        
+        accountRepo.save(originalAccount);
+        return ResponseEntity.ok(originalAccount);
+    }
+
+		   */
 		  
 		  //Fourth Method Get 
 		  @GetMapping("/{customer_id}/account")
@@ -83,6 +115,12 @@ public class UserController {
 		   	 return accountRepo.findAccountsByCustomerId(customer_id);
 		   	 
 		    }
+		  /*
+			@GetMapping("/{customer_id}/account")
+			   List<Account> findAccountsByCustomerId(@PathVariable("customer_id") long customer_id){
+			       return accountRepo.findAccountsByCustomerId(customer_id);
+		    }
+		*/
 
 		  
 	
@@ -114,7 +152,7 @@ public class UserController {
 				  userRepo.save(updateUser);
 				  return ResponseEntity.ok(updateUser); 
 	  }
-	  
+	  /* Duplicate
 	  
 	  //Seventh Method GET(/:customerID/account/:accountID)
 	  @GetMapping("/{customerId}/account/{accountNo}")
@@ -124,7 +162,7 @@ public class UserController {
 	   	 return accountRepo.findAccountsByCustomerIdAndAccountNo(accountNo, customerId); //accountNo
 	    }
 
-	
+	*/
 	
 	  //Eight Method POST 
 	  
@@ -170,46 +208,11 @@ public class UserController {
 	  }
 	  
 	 //
-	 @Autowired 
-	 AccountRepo accountRepo;
 	 
-	@PostMapping("/{id}/account")
-	Account addAccount(@PathVariable("id") long id, @RequestBody Account account) {
-		if(userRepo.findById(id).isPresent()) //checks if customer exists
-		{
-	     account.setCustomerId(id);
-	     return accountRepo.save(account);
-		}
-	    return null;
-	}
-
 	 
-	@GetMapping("/{customer_id}/account")
-	   List<Account> findAccountsByCustomerId(@PathVariable("customer_id") long customer_id){
-	       return accountRepo.findAccountsByCustomerId(customer_id);
-    }
+	
 
-
-	@PutMapping("/{customerId}/account/{accountNo}")
-    public ResponseEntity<Account> updateAccount(@PathVariable("customerId") long customerId,
-                                                   @PathVariable("accountNo") long accountNo) {
-        User originalCustomer = userRepo.findById(customerId)
-                .orElseThrow(() -> new RuntimeException("Customer does not exist customerId:" + customerId));
-        Account originalAccount = accountRepo.findById(accountNo)
-                .orElseThrow(() -> new RuntimeException("Account does not exist accountNo:" + accountNo));
-        
-        if(originalAccount.getCustomerId() == customerId)
-        {
-            originalAccount.setApproved(true);
-        }
-        else{
-           throw new RuntimeException("Account: " + accountNo + "does not belong to customerID: " + customerId);
-        }
-        
-        accountRepo.save(originalAccount);
-        return ResponseEntity.ok(originalAccount);
-    }
-
+	
 	@GetMapping("/{customerId}/account/{accountNo}")
 	Account getCustomerAndAccountById(@PathVariable("customerId") long customerId,
             @PathVariable("accountNo") long accountNo){
