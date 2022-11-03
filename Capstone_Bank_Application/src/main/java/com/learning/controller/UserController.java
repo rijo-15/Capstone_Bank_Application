@@ -115,6 +115,13 @@ public class UserController {
 	  
 	  
 	  //Seventh Method GET(/:customerID/account/:accountID)
+	  @GetMapping("/{customerId}/account/{accountNo}")
+	    Account getCustomerAndAccountById(@PathVariable("customerId") long customerId,
+	        	@PathVariable("accountNo") long accountNo){
+	   	 
+	   	 return accountRepo.findAccountsByCustomerIdAndAccountNo(accountNo, customerId); //accountNo
+	    }
+
 	
 	
 	  //Eight Method POST 
@@ -144,6 +151,8 @@ public class UserController {
 	  
 	  //Eleventh Method 
 //	  @PutMapping("/transfer")
+	  
+	  
 	
 	//role staff (to get multiple user info)
 	@GetMapping("/getcustomers")
