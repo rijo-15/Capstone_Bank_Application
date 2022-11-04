@@ -33,7 +33,8 @@ public class User {
 	private String phone;
 	@Column(name="Role")
 	private String role;
-	
+	@Column(name="Status")
+	private String status;
 	//Setter and getter methods
 	public long getUserId() {
 		return userId;
@@ -89,12 +90,19 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public User() {
 		super();
 		
 	}
 	public User(long userId, long ssn, String firstName, String lastName, String userName, String password,
-			String email, String phone, String role) {
+			String email, String phone, String role, String status) {
 		super();
 		this.userId = userId;
 		this.ssn = ssn;
@@ -105,13 +113,15 @@ public class User {
 		this.email = email;
 		this.phone = phone;
 		this.role = role;
+		this.status = status;
 	}
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", SSN=" + ssn + ", firstName=" + firstName + ", lastName=" + lastName
+		return "User [userId=" + userId + ", ssn=" + ssn + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", userName=" + userName + ", password=" + password + ", email=" + email + ", phone=" + phone
-				+ ", role=" + role + "]";
+				+ ", role=" + role + ", status=" + status + "]";
 	}
+
 	
 	
 	

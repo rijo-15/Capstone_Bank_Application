@@ -150,12 +150,6 @@ public class UserController {
 	List<User> getUser(){
 		return userRepo.findAll();
 	}
-	
-	  
-	  
-
-	  
-	  
 
 	  
 	  
