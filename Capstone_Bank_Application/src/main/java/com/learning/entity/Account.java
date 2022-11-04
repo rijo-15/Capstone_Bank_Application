@@ -32,6 +32,8 @@ public class Account {
 	private LocalDateTime dateOfCreation;
 	@Column(name="customer_id")
 	private long customerId;
+	
+	
 	public long getAccountNumber() {
 		return accountNumber;
 	}
