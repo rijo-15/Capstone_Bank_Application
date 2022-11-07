@@ -1,6 +1,5 @@
 package com.learning.controller;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -26,7 +25,7 @@ import com.learning.repo.PayloadRepo;
 import com.learning.repo.UserRepo;
 import com.learning.service.UserService;
 
-//@RequestMapping("/api/customer")
+@RequestMapping("/api/customer")
 @RestController
 public class UserController {
 	
@@ -48,7 +47,8 @@ public class UserController {
 		  //Second Method
 		  @PostMapping("/{id}/account")
 		    Account addAccount(@PathVariable("id") long id, @RequestBody Account account) {
-		   	 if(userRepo.findById(id).isPresent()) //checks if customer exists
+		   	
+			  if(userRepo.findById(id).isPresent()) //checks if customer exists
 		   	 {
 		     	account.setCustomerId(id);
 		     	return accountRepo.save(account);
@@ -102,7 +102,7 @@ public class UserController {
 	}
 	
 	  //Sixth Method - PUT
-	  @PutMapping("/{customer}")
+	  @PutMapping("/{id}")
 	  public ResponseEntity<User> updateCustomerDetails(@PathVariable("id") long id, @RequestBody User user){
 		  User updateUser = userRepo.findById(id)
 				  .orElseThrow(() -> new RuntimeException("Sorry customer with ID: " + id + " not found.")); 
@@ -236,26 +236,60 @@ public class UserController {
 	}
 	
 	@GetMapping("/user/{id}")
-	public String getHelloUser1(){
+	public String getHelloUser1(@PathVariable("id") long id){
 		
+		//Used to find current logged in customer
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-		String username = "error";
+		String currentUserName = "error";
 		if (principal instanceof UserDetails) {
-		  username = ((UserDetails)principal).getUsername();
+		  currentUserName = ((UserDetails)principal).getUsername();
 		  
 		} else {
-		  username = principal.toString();
+		  currentUserName = principal.toString();
 		}
-		
-		return ("<h1>hello user</h1> " + username + "got user using /user/**");
+		 
+		User inputUser = userRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer does not exist customerId:" + id));
+		String inputUserName = inputUser.getUserName();
+		if(!inputUserName.equals(currentUserName))
+		{
+			return ("currentUser: " + currentUserName + " <h1>you do not have access to this user</h1> " + inputUserName);
+
+		}
+		return ("<h1>hello user</h1> " + currentUserName + "with userId " + id + " you have access");
 	}
 	
 	@GetMapping("/")
 	public String getWelcome(){
-		return "Welecome";
+		return "Welcome";
 	}
 	
+	//checks if current user is calling url of current user or other user
+	boolean checksCurrentUserUrlCall(long id) {
+		
+		//Used to find current logged in customer
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		String currentUserName = "error";
+		if (principal instanceof UserDetails) {
+		  currentUserName = ((UserDetails)principal).getUsername();
+		  
+		} else {
+		  //currentUserName = principal.toString();
+		  return false;
+		}
+		 
+		User inputUser = userRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer does not exist customerId:" + id));
+		String inputUserName = inputUser.getUserName();
+		if(!inputUserName.equals(currentUserName))
+		{
+			System.out.println("currentUser: " + currentUserName + " <h1>you do not have access to this user</h1> " + inputUserName);
+			return false;
+
+		}
+		//("<h1>hello user</h1> " + currentUserName + "with userId " + id + " you have access");
+		return true;
+	}
 	
 	
 }

@@ -27,9 +27,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers("/getcustomers").hasRole("ADMIN") // forces you to login to check role
 		.antMatchers("/user/**").hasAnyRole("ADMIN", "USER") //forces you to login to check role
+		//antMatchers("/user/{userId}/**")
+        //.access("@userSecurity.hasUserId(authentication,#userId)")
 		.antMatchers("/").permitAll() //show to anyone logined or not, .permitAll();
 		//.antMatchers("/register").permitAll() "/register" is a postMapping so does not work here
 		.and().formLogin();
+		
+		http.csrf().disable();
 	}
 
 	@Bean
