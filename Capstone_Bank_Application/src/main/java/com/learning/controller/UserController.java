@@ -21,7 +21,6 @@ import com.learning.entity.Beneficiary;
 import com.learning.entity.Payload;
 import com.learning.entity.User;
 import com.learning.repo.AccountRepo;
-import com.learning.repo.PayloadRepo;
 import com.learning.repo.UserRepo;
 import com.learning.service.UserService;
 
@@ -153,8 +152,8 @@ public class UserController {
 	  
 	  
 	//Eleventh Method - Put(/api/customer/transfer)
-	@Autowired
-	PayloadRepo payloadRepo;
+	//@Autowired
+	//PayloadRepo payloadRepo;
 	  
 	  
     @PutMapping("/transfer")
