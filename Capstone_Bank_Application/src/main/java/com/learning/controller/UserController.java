@@ -116,6 +116,24 @@ public class UserController {
 				  userRepo.save(updateUser);
 				  return ResponseEntity.ok(updateUser); 
 	  }
+	  
+	  
+	  
+//	  @PutMapping("cus/{customerID}") //Id
+//	  ResponseEntity<User> updateCustomer(@PathVariable ("userId")long customerId,@RequestBody User user) 
+//	  {
+//	  		User updateUser = userRepo.findById(customerId)
+//	  		.orElseThrow(() -> new RuntimeException("User not exist with user_id: " + customerId));
+//	  		updateUser.setEmail(user.getEmail()); //update email
+//	  		updateUser.setPhone(user.getPhone()); //phone number
+//	  		updateUser.setLastName(user.getLastName()); //last name
+//	  			
+//	  		userRepo.save(updateUser);
+//	  		System.out.println("update customer");
+//	  		
+//	  		return ResponseEntity.ok(updateUser);
+//	  		
+//	  		}
 	   
 	  
 	  //Seventh Method GET(/:customerID/account/:accountID)
