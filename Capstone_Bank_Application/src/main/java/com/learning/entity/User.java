@@ -24,7 +24,7 @@ public class User {
 	@Column(name="LastName")
 	private String lastName;
 	@Column(name="UserName")
-	private String userName;
+	private String username;
 	@Column(name="Password")
 	private String password;
 	@Column(name="Email")
@@ -33,7 +33,15 @@ public class User {
 	private String phone;
 	@Column(name="Role")
 	private String role;
+	@Column(name= "active")
+	private boolean active;
 	
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 	//Setter and getter methods
 	public long getUserId() {
 		return userId;
@@ -60,10 +68,10 @@ public class User {
 		this.lastName = lastName;
 	}
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.username = userName;
 	}
 	public String getPassword() {
 		return password;
@@ -93,28 +101,26 @@ public class User {
 		super();
 		
 	}
+	
 	public User(long userId, long ssn, String firstName, String lastName, String userName, String password,
-			String email, String phone, String role) {
+			String email, String phone, String role, boolean active) {
 		super();
 		this.userId = userId;
 		this.ssn = ssn;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.userName = userName;
+		this.username = userName;
 		this.password = password;
 		this.email = email;
 		this.phone = phone;
 		this.role = role;
+		this.active = active;
 	}
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", SSN=" + ssn + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", userName=" + userName + ", password=" + password + ", email=" + email + ", phone=" + phone
-				+ ", role=" + role + "]";
+		return "User [userId=" + userId + ", ssn=" + ssn + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", userName=" + username + ", password=" + password + ", email=" + email + ", phone=" + phone
+				+ ", role=" + role + ", active=" + active + "]";
 	}
-	
-	
-	
-	
 	
 }
