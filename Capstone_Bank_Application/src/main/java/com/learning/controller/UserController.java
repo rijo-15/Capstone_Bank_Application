@@ -6,7 +6,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +26,7 @@ import com.learning.repo.PayloadRepo;
 import com.learning.repo.UserRepo;
 import com.learning.service.UserService;
 
-@RequestMapping("/api/customer")
+//@RequestMapping("/api/customer")
 @RestController
 public class UserController {
 	
@@ -198,10 +199,63 @@ public class UserController {
 	
     
 	//role staff (to get multiple user info)
-	@GetMapping("/getcustomers")
+	/*@GetMapping("/getcustomers")
+	List<User> getUser(){
+		return userRepo.findAll();
+	}*/
+    
+    @GetMapping("/getcustomers")
 	List<User> getUser(){
 		return userRepo.findAll();
 	}
+	
+	@GetMapping("/admin")
+	public String getHelloAdmin() {
+		return "hello admin";
+	}
+	
+	@GetMapping("/admin/1")
+	public String getShowAdmin1() {
+		return "showing admin 1";
+	}
+	
+	@GetMapping("/user")
+	public String getHelloUser(){
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		String username = "error";
+		if (principal instanceof UserDetails) {
+		  username = ((UserDetails)principal).getUsername();
+		  
+		} else {
+		  username = principal.toString();
+		}
+		
+		return ("<h1>hello user</h1>" + username);
+	}
+	
+	@GetMapping("/user/{id}")
+	public String getHelloUser1(){
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		String username = "error";
+		if (principal instanceof UserDetails) {
+		  username = ((UserDetails)principal).getUsername();
+		  
+		} else {
+		  username = principal.toString();
+		}
+		
+		return ("<h1>hello user</h1> " + username + "got user using /user/**");
+	}
+	
+	@GetMapping("/")
+	public String getWelcome(){
+		return "Welecome";
+	}
+	
 	
 	
 }

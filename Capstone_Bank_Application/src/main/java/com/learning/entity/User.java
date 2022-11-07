@@ -9,12 +9,14 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.GeneratorType;
+
 @Entity
 @Table
 public class User {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)// was Identity changed to Auto to test
 	@Column(name="UserId") //is a primary key
 	private long userId;
 	@Column(name="SSN")
