@@ -42,15 +42,18 @@ public class UserController {
 		  return userRepo.save(user); 
 		  }
 		  
+		 
+		  
 		  //Second Method
 		  @PostMapping("/{id}/account")
-		    Account addAccount(@PathVariable("id") long id, @RequestBody Account account) {
+		    String addAccount(@PathVariable("id") long id, @RequestBody Account account) {
 		   	 if(userRepo.findById(id).isPresent()) //checks if customer exists
 		   	 {
 		     	account.setCustomerId(id);
-		     	return accountRepo.save(account);
+		     	accountRepo.save(account);
+		     	return "Account added successfully"; 
 		   	 }
-		    	return null;
+		    	return "Account added unsuccessfull";
 		    }
 
 		  		  
@@ -98,7 +101,7 @@ public class UserController {
 	}
 	
 	  //Sixth Method - PUT
-	  @PutMapping("/{customer}")
+	  @PutMapping("/{customerID}")
 	  public ResponseEntity<User> updateCustomerDetails(@PathVariable("id") long id, @RequestBody User user){
 		  User updateUser = userRepo.findById(id)
 				  .orElseThrow(() -> new RuntimeException("Sorry customer with ID: " + id + " not found.")); 
@@ -113,6 +116,24 @@ public class UserController {
 				  userRepo.save(updateUser);
 				  return ResponseEntity.ok(updateUser); 
 	  }
+	  
+	  
+	  
+//	  @PutMapping("cus/{customerID}") //Id
+//	  ResponseEntity<User> updateCustomer(@PathVariable ("userId")long customerId,@RequestBody User user) 
+//	  {
+//	  		User updateUser = userRepo.findById(customerId)
+//	  		.orElseThrow(() -> new RuntimeException("User not exist with user_id: " + customerId));
+//	  		updateUser.setEmail(user.getEmail()); //update email
+//	  		updateUser.setPhone(user.getPhone()); //phone number
+//	  		updateUser.setLastName(user.getLastName()); //last name
+//	  			
+//	  		userRepo.save(updateUser);
+//	  		System.out.println("update customer");
+//	  		
+//	  		return ResponseEntity.ok(updateUser);
+//	  		
+//	  		}
 	   
 	  
 	  //Seventh Method GET(/:customerID/account/:accountID)
