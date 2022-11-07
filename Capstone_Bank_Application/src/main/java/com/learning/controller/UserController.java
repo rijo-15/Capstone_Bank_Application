@@ -7,7 +7,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
-
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.learning.entity.Account;
 
 import com.learning.entity.Beneficiary;
+import com.learning.entity.Payload;
 import com.learning.entity.User;
 import com.learning.repo.AccountRepo;
 import com.learning.repo.BeneficiaryRepo;
@@ -221,7 +223,80 @@ public class UserController {
 	  
 	  
 	  //Eleventh Method 
-//	  @PutMapping("/transfer")
+	  @PutMapping("/transfer")
+		public Payload transfer(@RequestBody Payload payload) {
+	   	 long fromAccNumber = payload.getFromAccNumber();
+	   	 long toAccNumber = payload.getToAccNumber();
+	   	 
+	   	 //System.out.println("fromAccNumber: " + fromAccNumber);
+	   	 
+	   	 //checks if both accounts exist
+	   	 if(accountRepo.findById(fromAccNumber).isPresent()
+	   			 && accountRepo.findById(toAccNumber).isPresent())
+	   	 {
+	   		  Account fromAcc = accountRepo.findById(fromAccNumber)
+	  				   .orElseThrow(() -> new RuntimeException("Sorry from account with ID: " + fromAccNumber + " not found."));
+	   		 
+	   		  Account toAcc = accountRepo.findById(toAccNumber)
+	 					   .orElseThrow(() -> new RuntimeException("Sorry to account with ID: " + toAccNumber + " not found."));
+	   		 
+	   		 
+	   		  long customerId = payload.getByCustomerId();
+	   		 
+	   		  //checks if account belongs to customer
+	   		  if(fromAcc.getCustomerId() == customerId &&
+	   					  toAcc.getCustomerId() == customerId)
+	   		  {
+	   			  double amountTransfer = payload.getAmount();
+	   			 
+	   			  fromAcc.setAccountBalance(fromAcc.getAccountBalance() - amountTransfer);
+	   			  toAcc.setAccountBalance(toAcc.getAccountBalance() + amountTransfer);
+
+	   			  accountRepo.save(fromAcc);
+	   			  accountRepo.save(toAcc);
+	   			 
+	   			  return payload;
+	   		  }
+	 
+	   	 }
+	   	 
+	   	 return null;
+		}
+		
+
+	  
+	  
+	  
+	  
+	  
+	//checks if current user is calling url of current user or other user
+	    boolean checksCurrentUserUrlCall(long id) {
+	   	 
+	   	 //Used to find current logged in customer
+	   	 Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+	   	 String currentUserName = "error";
+	   	 if (principal instanceof UserDetails) {
+	   	   currentUserName = ((UserDetails)principal).getUsername();
+	   	   
+	   	 } else {
+	   	   //currentUserName = principal.toString();
+	   	   return false;
+	   	 }
+	   	 
+	   	 User inputUser = userRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer does not exist customerId:" + id));
+	   	 String inputUserName = inputUser.getUserName();
+	   	 if(!inputUserName.equals(currentUserName))
+	   	 {
+	   		 System.out.println("currentUser: " + currentUserName + " <h1>you do not have access to this user</h1> " + inputUserName);
+	   		 return false;
+
+	   	 }
+	   	 //("<h1>hello user</h1> " + currentUserName + "with userId " + id + " you have access");
+	   	 return true;
+	    }
+
+
 	  
 	  
 	
