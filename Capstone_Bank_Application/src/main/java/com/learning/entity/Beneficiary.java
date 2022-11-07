@@ -29,6 +29,8 @@ public class Beneficiary {
 	private String email;
 	@Column(name="Phone")
 	private String phone;
+	@Column(name="approved", columnDefinition = "varchar(255) default 'no'") 
+	private String approved; //yes or no
 	
 	// idea a Beneficiary can have one user to be dependent on, but the user can have multiple Beneficiary
 	@ManyToOne(cascade = CascadeType.ALL)
