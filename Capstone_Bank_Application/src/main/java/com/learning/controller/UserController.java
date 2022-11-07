@@ -36,12 +36,22 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
+	//for testing purposes
+	@RequestMapping("/home")
+	public String home() {
+		return ("<h1>Welcome Home</h1>");
+	}
 		// First method Register user (customer role)
 		  @PostMapping("/register")
 		  User newUser(@RequestBody User user){
 		  return userRepo.save(user); 
 		  }
-		  
+		//role staff (to get multiple user info)
+			@GetMapping("/getcustomers")
+			List<User> getUser(){
+				return userRepo.findAll();
+			}
+			/*
 		  //Second Method
 		  @PostMapping("/{id}/account")
 		    Account addAccount(@PathVariable("id") long id, @RequestBody Account account) {
@@ -52,8 +62,8 @@ public class UserController {
 		   	 }
 		    	return null;
 		    }
-
-		  		  
+*/
+		  		  /*
 	      //Third Method PUT 
 		  @PutMapping("/{customerId}/account/{accountNo}")
 			public ResponseEntity<Account> updateAccount(@PathVariable("customerId") long customerId,
@@ -73,9 +83,9 @@ public class UserController {
 		   	 
 		    	accountRepo.save(originalAccount);
 		    	return ResponseEntity.ok(originalAccount);
-			}
-		   
-		  
+			}*/
+		  /*
+		   	  
 		  //Fourth Method Get 
 		  @GetMapping("/{customer_id}/account")
 		    List<Account> findAccountsByCustomerId(@PathVariable("customer_id") long customer_id){
@@ -83,8 +93,8 @@ public class UserController {
 		   	 
 		    }
 		  
-		  
-	
+		  */
+	/*
 	//get customer by specifying id (staff role)
 	//Fifth Method -Get 
 	@GetMapping("/getcustomer/{userId}") 
@@ -96,7 +106,8 @@ public class UserController {
 		}
 		return userRepo.findById(userId);
 	}
-	
+	*/
+		  /*
 	  //Sixth Method - PUT
 	  @PutMapping("/{customer}")
 	  public ResponseEntity<User> updateCustomerDetails(@PathVariable("id") long id, @RequestBody User user){
@@ -114,7 +125,8 @@ public class UserController {
 				  return ResponseEntity.ok(updateUser); 
 	  }
 	   
-	  
+	  */
+		  /*
 	  //Seventh Method GET(/:customerID/account/:accountID)
 	  @GetMapping("/{customerId}/account/{accountNo}")
 	    Account getCustomerAndAccountById(@PathVariable("customerId") long customerId,
@@ -122,7 +134,7 @@ public class UserController {
 	   	 
 	   	 return accountRepo.findAccountsByCustomerIdAndAccountNo(accountNo, customerId); //accountNo
 	    }
-
+*/
 	
 	  //Eight Method POST 
 	  
@@ -154,11 +166,7 @@ public class UserController {
 	  
 	  
 	
-	//role staff (to get multiple user info)
-	@GetMapping("/getcustomers")
-	List<User> getUser(){
-		return userRepo.findAll();
-	}
+	
 
 
 		
