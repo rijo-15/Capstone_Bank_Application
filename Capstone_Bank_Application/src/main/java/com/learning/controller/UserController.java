@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ import com.learning.entity.Account;
 import com.learning.entity.Beneficiary;
 import com.learning.entity.User;
 import com.learning.repo.AccountRepo;
+import com.learning.repo.BeneficiaryRepo;
 import com.learning.repo.UserRepo;
 import com.learning.service.UserService;
 
@@ -35,6 +37,10 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	BeneficiaryRepo beneficiaryRepo;
+	
 	
 	//for testing purposes
 	@RequestMapping("/home")
@@ -52,9 +58,12 @@ public class UserController {
 			List<User> getUser(){
 				return userRepo.findAll();
 			}
-			/*
 
+			/*
 		  //Second Method
+			/*
+			 * Function to create an account for user (Authority USER)
+			 * */
 		  @PostMapping("/{id}/account")
 		    String addAccount(@PathVariable("id") long id, @RequestBody Account account) {
 		   	 if(userRepo.findById(id).isPresent()) //checks if customer exists
@@ -65,8 +74,10 @@ public class UserController {
 		   	 }
 		    	return "Account added unsuccessfull";
 		    }
-*/
-		  		  /*
+
+		  /*
+		   * Approves Account created by user (Authority Staff)
+		   * */
 	      //Third Method PUT 
 		  @PutMapping("/{customerId}/account/{accountNo}")
 			public ResponseEntity<Account> updateAccount(@PathVariable("customerId") long customerId,
@@ -86,20 +97,22 @@ public class UserController {
 		   	 
 		    	accountRepo.save(originalAccount);
 		    	return ResponseEntity.ok(originalAccount);
-			}*/
+			}
 		  /*
+		   * Function to get all accounts which are opened by customer
+		   * Authority(STAFF)
+		   */
 		   	  
 		  //Fourth Method Get 
 		  @GetMapping("/{customer_id}/account")
 		    List<Account> findAccountsByCustomerId(@PathVariable("customer_id") long customer_id){
 		   	 return accountRepo.findAccountsByCustomerId(customer_id);
 		   	 
-		    }
-		  
-		  */
+		    }	  
 	/*
-	//get customer by specifying id (staff role)
-	//Fifth Method -Get 
+	 * Function to get customer by specified Id
+	 * Fifth Method -Get 
+	 */
 	@GetMapping("/getcustomer/{userId}") 
 	Optional<User> getUserById(@PathVariable long userId){
 		try {
@@ -109,10 +122,18 @@ public class UserController {
 		}
 		return userRepo.findById(userId);
 	}
-	*/
+
+	
 		  /*
 	  //Sixth Method - PUT
 	  @PutMapping("/{customerID}")
+	
+	/*
+	 * Update the user in the payload if the userName match and exists
+	 * Sixth Method - PUT
+	 */
+	  @PutMapping("/{customer}")
+
 	  public ResponseEntity<User> updateCustomerDetails(@PathVariable("id") long id, @RequestBody User user){
 		  User updateUser = userRepo.findById(id)
 				  .orElseThrow(() -> new RuntimeException("Sorry customer with ID: " + id + " not found.")); 
@@ -146,18 +167,35 @@ public class UserController {
 //	  		
 //	  		}
 	   
-	  */
+	  
 		  /*
-	  //Seventh Method GET(/:customerID/account/:accountID)
+		   * Get customer Account with specified Account #
+		   * Authority I think Staff
+		   * SEVENTH MEthod
+		   */
 	  @GetMapping("/{customerId}/account/{accountNo}")
 	    Account getCustomerAndAccountById(@PathVariable("customerId") long customerId,
 	        	@PathVariable("accountNo") long accountNo){
 	   	 
 	   	 return accountRepo.findAccountsByCustomerIdAndAccountNo(accountNo, customerId); //accountNo
 	    }
-*/
-	
-	  //Eight Method POST 
+
+	/*
+	 * Should add the beneficiary for the customer with valid account number
+	 * Eight Method POST 
+	 */
+	  @PostMapping("{customerID}/beneficiary")
+	  Beneficiary addBeneficiary(@PathVariable("customerID") long customerID, @RequestBody Beneficiary beneficiary ) {
+		  
+		  try {
+			  User user = userRepo.findById(customerID).get();
+			  beneficiary.addBenficaryToUser(user);
+		  }catch(Exception e) {
+				e.printStackTrace();
+			}
+		  
+		  return beneficiaryRepo.save(beneficiary);
+	  }
 	  
 	  
 	  //Nine Method -  GET(/:customerID/beneficiary) 
@@ -170,7 +208,7 @@ public class UserController {
 	  
 	  
 	  //Tenth Method - Delete(/:customerID/beneficiary/:beneficiaryID) 
-//	  @DeleteMapping("/:customerID/beneficiary/:beneficiaryID")	  
+//	  @DeleteMapping("{customerID}/beneficiary/{beneficiaryID}")	  
 //	  String deleteBeneficiaryById(@PathVariable("id") int id) {
 //		  try {
 //			  benefi.deleteById(id);

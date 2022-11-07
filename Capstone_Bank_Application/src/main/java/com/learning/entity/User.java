@@ -1,13 +1,21 @@
 package com.learning.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 @Entity
 @Table
@@ -17,15 +25,15 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="UserId") //is a primary key
 	private long userId;
-	@Column(name="SSN")
+	@Column(name="SSN", unique=true, nullable=false)
 	private long ssn;
 	@Column(name="FirstName")
 	private String firstName;
 	@Column(name="LastName")
 	private String lastName;
-	@Column(name="UserName")
+	@Column(name="UserName", unique=true, nullable=false)
 	private String username;
-	@Column(name="Password")
+	@Column(name="Password", nullable=false)
 	private String password;
 	@Column(name="Email")
 	private String email;
@@ -36,12 +44,17 @@ public class User {
 	@Column(name= "active")
 	private boolean active;
 	
-	public boolean isActive() {
-		return active;
-	}
-	public void setActive(boolean active) {
-		this.active = active;
-	}
+	@OneToMany(mappedBy="user")
+	@JsonIgnore //to avoid recursive error
+	Set<Beneficiary> beneficiary = new HashSet<>();
+	
+	
+	//Account relationship map
+	@OneToMany(mappedBy="userAcc")//one user can have many accounts
+	@JsonIgnore
+	Set<Account> account = new HashSet<>();
+	
+	
 	//Setter and getter methods
 	public long getUserId() {
 		return userId;
@@ -97,6 +110,13 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	
 	public User() {
 		super();
 		
