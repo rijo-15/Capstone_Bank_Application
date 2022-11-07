@@ -19,5 +19,4 @@ public interface AccountRepo extends JpaRepository<Account, Long> {
     public Account findAccountsByCustomerIdAndAccountNo(@Param("accountNumber") long accountNumber,
    															 @Param("customerId") long customerId);
 
-
 }

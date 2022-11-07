@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.learning.entity.Account;
+
+import com.learning.entity.Beneficiary;
 import com.learning.entity.User;
 import com.learning.repo.AccountRepo;
 import com.learning.repo.UserRepo;
@@ -34,7 +36,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	// First method Register user (customer role)
+		// First method Register user (customer role)
 		  @PostMapping("/register")
 		  User newUser(@RequestBody User user){
 		  return userRepo.save(user); 
@@ -54,8 +56,7 @@ public class UserController {
 		    	return "Account added unsuccessfull";
 		    }
 
-		  
-		  
+		  		  
 	      //Third Method PUT 
 		  @PutMapping("/{customerId}/account/{accountNo}")
 			public ResponseEntity<Account> updateAccount(@PathVariable("customerId") long customerId,
@@ -76,7 +77,7 @@ public class UserController {
 		    	accountRepo.save(originalAccount);
 		    	return ResponseEntity.ok(originalAccount);
 			}
-		  
+		   
 		  
 		  //Fourth Method Get 
 		  @GetMapping("/{customer_id}/account")
@@ -84,7 +85,7 @@ public class UserController {
 		   	 return accountRepo.findAccountsByCustomerId(customer_id);
 		   	 
 		    }
-
+		  
 		  
 	
 	//get customer by specifying id (staff role)
@@ -115,7 +116,7 @@ public class UserController {
 				  userRepo.save(updateUser);
 				  return ResponseEntity.ok(updateUser); 
 	  }
-	  
+	   
 	  
 	  //Seventh Method GET(/:customerID/account/:accountID)
 	  @GetMapping("/{customerId}/account/{accountNo}")
@@ -125,7 +126,6 @@ public class UserController {
 	   	 return accountRepo.findAccountsByCustomerIdAndAccountNo(accountNo, customerId); //accountNo
 	    }
 
-	
 	
 	  //Eight Method POST 
 	  
@@ -162,36 +162,8 @@ public class UserController {
 	List<User> getUser(){
 		return userRepo.findAll();
 	}
+
+
+		
 	
-	  
-	  
-
-	  
-	  
-
-	  
-	  
-
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	   
-	  
-
-	  
-	  
-	 
-
-
-
-	  
-	  
-
 }
