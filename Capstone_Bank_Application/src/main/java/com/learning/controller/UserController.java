@@ -120,11 +120,20 @@ public class UserController {
 	  
 	  //Seventh Method GET(/:customerID/account/:accountID)
 	  @GetMapping("/{customerId}/account/{accountNo}")
+<<<<<<< Updated upstream
 		Account getCustomerAndAccountById(@PathVariable("customerId") long customerId,
 	            @PathVariable("accountNo") long accountNo){
 			
 			return accountRepo.findAccountsByCustomerIdAndAccountNo(accountNo, customerId); //accountNo
 	   }
+=======
+	  Account getCustomerAndAccountById(@PathVariable("customerId") long customerId,
+	            @PathVariable("accountNo") long accountNo){
+			
+			return accountRepo.findAccountsByCustomerIdAndAccountNo(accountNo, customerId); //accountNo
+	  }
+		
+>>>>>>> Stashed changes
 	
 	  //Eight Method POST 
 	  
@@ -151,6 +160,7 @@ public class UserController {
 //	  }
 	  
 	  
+<<<<<<< Updated upstream
 	//Eleventh Method - Put(/api/customer/transfer)
 	//@Autowired
 	//PayloadRepo payloadRepo;
@@ -262,6 +272,18 @@ public class UserController {
 	public String getWelcome(){
 		return "Welcome";
 	}
+=======
+	//Eleventh Method  
+    @PutMapping("/transfer")
+	
+	
+    
+    //role staff (to get multiple user info)
+	@GetMapping("/getcustomers")
+	List<User> getUser(){
+		return userRepo.findAll();
+	}
+>>>>>>> Stashed changes
 	
 	//checks if current user is calling url of current user or other user
 	boolean checksCurrentUserUrlCall(long id) {
