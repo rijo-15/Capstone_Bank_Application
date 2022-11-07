@@ -20,10 +20,12 @@ public class AccountController {
 	@Autowired
 	AccountRepo accountRepo;
 	
-	@PostMapping("/addaccount")
-	Account newAccount(@RequestBody Account account){
-	  return accountRepo.save(account); 
-	  }
+	 //add account 
+	  @PostMapping("/addaccount")
+		Account newAccount(@RequestBody Account account){
+		  return accountRepo.save(account); 
+		  }
+	
 	
 	@GetMapping("/getaccount")
 	List<Account> getUser(){

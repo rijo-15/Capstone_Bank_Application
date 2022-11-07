@@ -40,15 +40,18 @@ public class UserController {
 		  return userRepo.save(user); 
 		  }
 		  
+		 
+		  
 		  //Second Method
 		  @PostMapping("/{id}/account")
-		    Account addAccount(@PathVariable("id") long id, @RequestBody Account account) {
+		    String addAccount(@PathVariable("id") long id, @RequestBody Account account) {
 		   	 if(userRepo.findById(id).isPresent()) //checks if customer exists
 		   	 {
 		     	account.setCustomerId(id);
-		     	return accountRepo.save(account);
+		     	accountRepo.save(account);
+		     	return "Account added successfully"; 
 		   	 }
-		    	return null;
+		    	return "Account added unsuccessfull";
 		    }
 
 		  
@@ -97,7 +100,7 @@ public class UserController {
 	}
 	
 	  //Sixth Method - PUT
-	  @PutMapping("/{customer}")
+	  @PutMapping("/{customerID}")
 	  public ResponseEntity<User> updateCustomerDetails(@PathVariable("id") long id, @RequestBody User user){
 		  User updateUser = userRepo.findById(id)
 				  .orElseThrow(() -> new RuntimeException("Sorry customer with ID: " + id + " not found.")); 
