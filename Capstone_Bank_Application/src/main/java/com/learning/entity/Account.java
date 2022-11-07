@@ -2,12 +2,14 @@ package com.learning.entity;
 
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,9 +27,10 @@ public class Account {
 	@Column(name="approved") 
 	private boolean approved; //yes or no
 	@Column(name="date_of_creation")
-	private LocalDateTime dateOfCreation;
+	private Date dateOfCreation;
 	@Column(name="customer_id")
 	private long customerId;
+	@OneToMany
 	public long getAccountNumber() {
 		return accountNumber;
 	}
@@ -52,10 +55,10 @@ public class Account {
 	public void setApproved(boolean approved) {
 		this.approved = approved;
 	}
-	public LocalDateTime getDateOfCreation() {
+	public Date getDateOfCreation() {
 		return dateOfCreation;
 	}
-	public void setDateOfCreation(LocalDateTime dateOfCreation) {
+	public void setDateOfCreation(Date dateOfCreation) {
 		this.dateOfCreation = dateOfCreation;
 	}
 	public long getCustomerId() {
@@ -69,13 +72,13 @@ public class Account {
 		
 	}
 	public Account(long accountNumber, AccountType accountType, double accountBalance, boolean approved,
-			 long customerId) {
+			 long customerId, Date dateOfCreation) {
 		super();
 		this.accountNumber = accountNumber;
 		this.accountType = accountType;
 		this.accountBalance = accountBalance;
 		this.approved = approved;
-		this.dateOfCreation = LocalDateTime.now();
+		this.dateOfCreation = dateOfCreation;
 		this.customerId = customerId;
 	}
 	@Override
