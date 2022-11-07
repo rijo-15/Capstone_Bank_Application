@@ -40,9 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.authorizeRequests()
-			.antMatchers("/api/customer/register").hasAuthority("USER")
-			.antMatchers("/api/customer/getcustomers").hasAuthority("USER")
-			.antMatchers("/api/customer/home").permitAll()
+			.antMatchers("/api/customer/**").hasAuthority("USER")
+			.antMatchers("/api/staff/**").hasAuthority("STAFF")
+			.antMatchers("/api/customer/home").permitAll() //pretty much no use (because .antMatchers("/api/customer/**").hasAuthority("USER"))
 			.and().formLogin();
 		
 	}
