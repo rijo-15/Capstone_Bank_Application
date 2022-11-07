@@ -12,6 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.CreatedDate;
+
+import javax.persistence.*;
+
 @Entity
 @Table
 public class Account {
@@ -27,10 +31,18 @@ public class Account {
 	@Column(name="approved") 
 	private boolean approved; //yes or no
 	@Column(name="date_of_creation")
+	@CreatedDate
 	private Date dateOfCreation;
-	@Column(name="customer_id")
+	@Column(name="customer_id") //need to remove this since we have a relationship now
 	private long customerId;
-	@OneToMany
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="refcustomer_id", referencedColumnName="UserId")
+	private User userAcc; //many account can belongs to one customer
+	
+	
+	//setters and getters
+
 	public long getAccountNumber() {
 		return accountNumber;
 	}
@@ -67,6 +79,10 @@ public class Account {
 	public void setCustomerId(long customerId) {
 		this.customerId = customerId;
 	}
+	//Relationship map getter
+	public User getUserAcc() {
+		return userAcc;
+	}
 	public Account() {
 		super();
 		
@@ -88,5 +104,7 @@ public class Account {
 				+ customerId + "]";
 	}
 	
-	
+	public void addAccountToUser(User userAcc) {
+		this.userAcc = userAcc;
+	}
 }
