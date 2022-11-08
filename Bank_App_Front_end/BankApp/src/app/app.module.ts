@@ -27,8 +27,10 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
     UpdatepasswordComponent,
     StaffloginComponent,
     AdminloginComponent,
+    AdmindashboardComponent,
+    StaffloginComponent,
+    AdminloginComponent,
     AdmindashboardComponent
-
   ],
   imports: [
     BrowserModule,
