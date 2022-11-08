@@ -86,6 +86,13 @@ public class Beneficiary {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	public String getapproved() {
+		return approved; 
+	}
+	public void setapproved(String approved) {
+		this.approved = approved; 
+	}
+	
 	
 	public Beneficiary() {
 		super();

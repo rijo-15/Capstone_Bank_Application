@@ -41,6 +41,7 @@ public class User {
 	private String phone;
 	@Column(name="Role", columnDefinition = "varchar(255) default 'USER'")
 	private String role;
+
 	/*@Column(name= "active")
 	private boolean active;*/
 	
@@ -53,6 +54,10 @@ public class User {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+//	@Column(name= "active")
+//	private boolean active;
+
 	
 	@OneToMany(mappedBy="user")
 	@JsonIgnore //to avoid recursive error
@@ -120,17 +125,49 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+
 	/*public boolean isActive() {
 		return active;
 	}
 	public void setActive(boolean active) {
 		this.active = active;
 	}*/
+
+//	public boolean isActive() {
+//		return active;
+//	}
+//	public void setActive(boolean active) {
+//		this.active = active;
+//	}
+
 	
 	public User() {
 		super();
 		
 	}
 	
+
+
+	public User(long userId, long ssn, String firstName, String lastName, String userName, String password,
+			String email, String phone, String role, boolean active) {
+		super();
+		this.userId = userId;
+		this.ssn = ssn;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = userName;
+		this.password = password;
+		this.email = email;
+		this.phone = phone;
+		this.role = role;
+//		this.active = active;
+	}
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", ssn=" + ssn + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", userName=" + username + ", password=" + password + ", email=" + email + ", phone=" + phone
+				+ ", role=" + role + ", active=" +  "]";
+	}
+
 	
 }
