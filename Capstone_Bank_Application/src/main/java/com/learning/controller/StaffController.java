@@ -1,14 +1,20 @@
 package com.learning.controller;
 
 import java.util.List;
+import javax.persistence.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.learning.entity.Beneficiary;
 import com.learning.entity.User;
+import com.learning.repo.BeneficiaryRepo;
 import com.learning.repo.StaffRepo;
 
 @RequestMapping("/api/staff")
@@ -16,7 +22,12 @@ import com.learning.repo.StaffRepo;
 public class StaffController {
 	
 	@Autowired
-	StaffRepo staffRepo;
+
+StaffRepo staffRepo;
+	
+	@Autowired
+	BeneficiaryRepo beneficiaryRepo;
+
 	
 	@GetMapping("/customer")
 	List<User> getAllCustomers()
@@ -29,4 +40,41 @@ public class StaffController {
 		return staffRepo.getCustomerById(id);
 	}
 	
+
+
+
+	
+	
+	
+	//Third Method 
+	//PUT("/api/staff/beneficiary)
+	
+	@PutMapping("/beneficiary")
+	public ResponseEntity<Beneficiary> approveBeneficiary(@PathVariable("id") long id, @RequestBody Beneficiary beneficiary){
+		Beneficiary updateBeneficiary = beneficiaryRepo.findById(id)
+				.orElseThrow(() -> new RuntimeException("not found")); 
+		
+		updateBeneficiary.setApproved(beneficiary.getApproved()); 
+		
+		beneficiaryRepo.save(updateBeneficiary);
+		return ResponseEntity.ok(updateBeneficiary); 
+		
+		
+	}
+	
+	//Fouth Method 
+	//Get("/api/staff/accounts/approve")
+	@GetMapping("/accounts/approve")
+	  List<Beneficiary> beneficiarytoApprove(){
+		
+	   	 return beneficiaryRepo.beneficiaryNotApproved();
+	   	 
+	    }
+	
+	
+	
+
 }
+
+
+
