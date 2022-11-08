@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.learning.entity.Beneficiary;
+import com.learning.entity.Payload;
 import com.learning.entity.User;
 import com.learning.repo.BeneficiaryRepo;
 
 import com.learning.entity.Account;
-import com.learning.entity.User;
+
+
 import com.learning.repo.AccountRepo;
 
 import com.learning.repo.StaffRepo;
@@ -41,19 +43,20 @@ public class StaffController {
 	@Autowired
 	AccountRepo accountRepo;
 	
-	/*@PutMapping("/accounts/approve")
+	@PutMapping("/accounts/approve")
 	public ResponseEntity<Account> updateAccountApproval(@RequestBody Account account){
-			
-		  long accNo = account.getAccountNumber();
-		  
-		  Account updateAccount = accountRepo.findById(accNo)
-				  .orElseThrow(() -> new RuntimeException("Sorry account with accNo: " + accNo + " not found."));
-		  
-		  		  updateAccount.setApproved(account.getApproved());
+	            
+	      long accNo = account.getAccountNumber();
+	          
+	      Account updateAccount = accountRepo.findById(accNo)
+	              	.orElseThrow(() -> new RuntimeException("Sorry account with accNo: " + accNo + " not found."));
+	          
+	                updateAccount.setApproved(account.getApproved());
 
-		  accountRepo.save(updateAccount);
-		  return ResponseEntity.ok(updateAccount); 
-	  }*/
+	      accountRepo.save(updateAccount);
+	      return ResponseEntity.ok(updateAccount);
+	}
+
 	
 	@GetMapping("/customer")
 	List<User> getAllCustomers()
@@ -113,7 +116,40 @@ public class StaffController {
 	   	 
 	    }
 	
-	
+	@PutMapping("/transfer")
+	public Payload transfer(@RequestBody Payload payload) {
+   	 long fromAccNumber = payload.getFromAccNumber();
+   	 long toAccNumber = payload.getToAccNumber();
+   	 
+   	 //System.out.println("fromAccNumber: " + fromAccNumber);
+   	 
+   	 //checks if both accounts exist
+   	 if(accountRepo.findById(fromAccNumber).isPresent()
+   			 && accountRepo.findById(toAccNumber).isPresent())
+   	 {
+   		  Account fromAcc = accountRepo.findById(fromAccNumber)
+  				   .orElseThrow(() -> new RuntimeException("Sorry from account with ID: " + fromAccNumber + " not found."));
+   		 
+   		  Account toAcc = accountRepo.findById(toAccNumber)
+ 					   .orElseThrow(() -> new RuntimeException("Sorry to account with ID: " + toAccNumber + " not found."));
+   		 
+   		 
+   		  long staffId = payload.getByStaffId();
+   		 
+   		  //checks if account belongs to customer
+   		  double amountTransfer = payload.getAmount();
+   			 
+   		  fromAcc.setAccountBalance(fromAcc.getAccountBalance() - amountTransfer);
+   		  toAcc.setAccountBalance(toAcc.getAccountBalance() + amountTransfer);
+
+   		  accountRepo.save(fromAcc);
+   		  accountRepo.save(toAcc);
+   			 
+   	      return payload;
+   	 }
+   	 
+   	 return null;
+	}
 	
 
 }
