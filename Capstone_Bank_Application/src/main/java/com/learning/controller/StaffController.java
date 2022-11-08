@@ -31,8 +31,10 @@ import com.learning.repo.BeneficiaryRepo;
 public class StaffController {
 	
 	@Autowired
-
-	StaffRepo staffRepo;
+StaffRepo staffRepo;
+	
+	@Autowired
+	BeneficiaryRepo beneficiaryRepo;
 	
 	@GetMapping("/customer")
 	List<User> getAllCustomers()
@@ -45,9 +47,8 @@ public class StaffController {
 		return staffRepo.getCustomerById(id);
 	}
 	
-}
 
-	BeneficiaryRepo beneficiaryRepo;
+
 	
 	
 	
