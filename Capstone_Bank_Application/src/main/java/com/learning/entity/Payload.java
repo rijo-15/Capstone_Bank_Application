@@ -19,7 +19,14 @@ public class Payload {
     private long amount;
     private String reason;
     private long byCustomerId;
-    public long getPayloadId() {
+    private long byStaffId;
+    public long getByStaffId() {
+		return byStaffId;
+	}
+	public void setByStaffId(long byStaffId) {
+		this.byStaffId = byStaffId;
+	}
+	public long getPayloadId() {
    	 return payloadId;
     }
     public void setPayloadId(long payloadId) {
