@@ -29,7 +29,7 @@ import { ViewstatementComponent } from './viewstatement/viewstatement.component'
     RegistrationComponent,
     StaffloginComponent,
     AdminloginComponent,
-    AdmindashboardComponent
+    AdmindashboardComponent,
     DashboardComponent,
     CreateaccountComponent,
     AddbeneficiaryComponent,
