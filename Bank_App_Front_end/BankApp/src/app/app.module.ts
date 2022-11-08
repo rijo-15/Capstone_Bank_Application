@@ -10,6 +10,10 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
+import { StaffloginComponent } from './stafflogin/stafflogin.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { UpdatepasswordComponent } from './updatepassword/updatepassword.compone
     LoginComponent,
     RegistrationComponent,
     ForgotPasswordComponent,
-    UpdatepasswordComponent
+    UpdatepasswordComponent,
+    StaffloginComponent,
+    AdminloginComponent,
+    AdmindashboardComponent
+
   ],
   imports: [
     BrowserModule,
