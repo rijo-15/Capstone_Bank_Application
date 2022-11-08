@@ -1,0 +1,42 @@
+ul{
+    float:auto;    
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+    background-color: rgb(119, 156, 158);
+    overflow: hidden;
+    
+}
+li{
+    float: left;
+    font-size: 20px;
+    
+}
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 90px;
+    text-decoration: none;     
+}
+li a:hover{
+    background-color: rgb(58, 149, 123);
+}
+li.left{
+    float:right;
+    
+}
+
+div{
+    background-color: whitesmoke;
+    width: 650px;
+    height: 470px;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+table{
+margin-left: auto;
+margin-right: auto;
+Display: inline;
+}
