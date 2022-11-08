@@ -8,8 +8,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
+import { StaffloginComponent } from './stafflogin/stafflogin.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { UpdatepasswordComponent } from './updatepassword/updatepassword.compone
     FooterComponent,
     LoginComponent,
     RegistrationComponent,
-    ForgotPasswordComponent,
-    UpdatepasswordComponent
+    StaffloginComponent,
+    AdminloginComponent,
+    AdmindashboardComponent
   ],
   imports: [
     BrowserModule,
