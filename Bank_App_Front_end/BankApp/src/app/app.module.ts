@@ -8,6 +8,12 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreateaccountComponent } from './createaccount/createaccount.component';
+import { AddbeneficiaryComponent } from './addbeneficiary/addbeneficiary.component';
+import { RemovebeneficiaryComponent } from './removebeneficiary/removebeneficiary.component';
+import { TransfermoneyComponent } from './transfermoney/transfermoney.component';
+import { ViewstatementComponent } from './viewstatement/viewstatement.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,13 @@ import { RegistrationComponent } from './registration/registration.component';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    DashboardComponent,
+    CreateaccountComponent,
+    AddbeneficiaryComponent,
+    RemovebeneficiaryComponent,
+    TransfermoneyComponent,
+    ViewstatementComponent
   ],
   imports: [
     BrowserModule,
