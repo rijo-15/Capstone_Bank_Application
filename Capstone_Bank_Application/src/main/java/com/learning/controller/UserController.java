@@ -213,9 +213,9 @@ public class UserController {
 	  
 	  //Tenth Method - Delete(/:customerID/beneficiary/:beneficiaryID) 
 //	  @DeleteMapping("{customerID}/beneficiary/{beneficiaryID}")	  
-//	  String deleteBeneficiaryById(@PathVariable("id") int id) {
+//	  String deleteBeneficiaryById(@PathVariable("id") long id) {
 //		  try {
-//			  benefi.deleteById(id);
+//			  beneficiaryRepo.deleteById(id);
 //			  return "Beneficiary Deleted Successfully"; 
 //		  }catch(Exception e) {
 //			  e.printStackTrace();
