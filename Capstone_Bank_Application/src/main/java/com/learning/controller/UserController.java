@@ -91,7 +91,7 @@ public class UserController {
 		   	 
 		    	if(originalAccount.getCustomerId() == customerId)
 		    	{
-		        	originalAccount.setApproved(true);
+		        	originalAccount.setApproved("Yes");
 		    	}
 		    	else{
 		       	throw new RuntimeException("Account: " + accountNo + "does not belong to customerID: " + customerId);

@@ -6,4 +6,5 @@ import com.learning.entity.Staff;
 
 public interface StaffRepo extends JpaRepository<Staff, Long> {
 
+	
 }

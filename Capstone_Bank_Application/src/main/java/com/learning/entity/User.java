@@ -39,7 +39,7 @@ public class User {
 	private String email;
 	@Column(name="Phone")
 	private String phone;
-	@Column(name="Role")
+	@Column(name="Role", columnDefinition = "varchar(255) default 'USER'")
 	private String role;
 	@Column(name= "active")
 	private boolean active;
