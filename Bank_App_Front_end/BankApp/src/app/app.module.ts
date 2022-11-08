@@ -18,7 +18,9 @@ import { StaffdashboardComponent } from './staffdashboard/staffdashboard.compone
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ProfileComponent,
+    StaffdashboardComponent
   ],
   imports: [
     BrowserModule,
