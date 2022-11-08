@@ -1,0 +1,30 @@
+div{
+    background-color: whitesmoke;
+    width: 500px;
+    height: 470px;
+    margin-left: auto; 
+    margin-right: auto;
+}
+form{
+    margin: auto;
+    justify-content: center;
+    text-align:center;
+   
+}
+input{
+    padding: 10px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+   }
+   button{
+    padding: 10px;
+    width: 150px;
+    border: 1px solid #ccc;
+    background-color: #24a0ed;
+    border-radius: 4px;
+  }
+  table{
+    margin-left: auto; 
+    margin-right: auto;
+  }
+ 

@@ -7,6 +7,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { StaffloginComponent } from './stafflogin/stafflogin.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -16,7 +19,6 @@ import { RemovebeneficiaryComponent } from './removebeneficiary/removebeneficiar
 import { TransfermoneyComponent } from './transfermoney/transfermoney.component';
 import { ViewstatementComponent } from './viewstatement/viewstatement.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,9 @@ import { ViewstatementComponent } from './viewstatement/viewstatement.component'
     FooterComponent,
     LoginComponent,
     RegistrationComponent,
+    StaffloginComponent,
+    AdminloginComponent,
+    AdmindashboardComponent
     DashboardComponent,
     CreateaccountComponent,
     AddbeneficiaryComponent,
