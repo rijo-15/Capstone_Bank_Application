@@ -41,8 +41,8 @@ public class User {
 	private String phone;
 	@Column(name="Role", columnDefinition = "varchar(255) default 'USER'")
 	private String role;
-	@Column(name= "active")
-	private boolean active;
+//	@Column(name= "active")
+//	private boolean active;
 	
 	@OneToMany(mappedBy="user")
 	@JsonIgnore //to avoid recursive error
@@ -110,12 +110,12 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public boolean isActive() {
-		return active;
-	}
-	public void setActive(boolean active) {
-		this.active = active;
-	}
+//	public boolean isActive() {
+//		return active;
+//	}
+//	public void setActive(boolean active) {
+//		this.active = active;
+//	}
 	
 	public User() {
 		super();
@@ -134,13 +134,13 @@ public class User {
 		this.email = email;
 		this.phone = phone;
 		this.role = role;
-		this.active = active;
+//		this.active = active;
 	}
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", ssn=" + ssn + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", userName=" + username + ", password=" + password + ", email=" + email + ", phone=" + phone
-				+ ", role=" + role + ", active=" + active + "]";
+				+ ", role=" + role + ", active=" +  "]";
 	}
 	
 }

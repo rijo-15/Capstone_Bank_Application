@@ -7,8 +7,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -270,31 +268,31 @@ public class UserController {
 	  
 	  
 	//checks if current user is calling url of current user or other user
-	    boolean checksCurrentUserUrlCall(long id) {
-	   	 
-	   	 //Used to find current logged in customer
-	   	 Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-	   	 String currentUserName = "error";
-	   	 if (principal instanceof UserDetails) {
-	   	   currentUserName = ((UserDetails)principal).getUsername();
-	   	   
-	   	 } else {
-	   	   //currentUserName = principal.toString();
-	   	   return false;
-	   	 }
-	   	 
-	   	 User inputUser = userRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer does not exist customerId:" + id));
-	   	 String inputUserName = inputUser.getUserName();
-	   	 if(!inputUserName.equals(currentUserName))
-	   	 {
-	   		 System.out.println("currentUser: " + currentUserName + " <h1>you do not have access to this user</h1> " + inputUserName);
-	   		 return false;
-
-	   	 }
-	   	 //("<h1>hello user</h1> " + currentUserName + "with userId " + id + " you have access");
-	   	 return true;
-	    }
+//	    boolean checksCurrentUserUrlCall(long id) {
+//	   	 
+//	   	 //Used to find current logged in customer
+//	   	 Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//
+//	   	 String currentUserName = "error";
+//	   	 if (principal instanceof UserDetails) {
+//	   	   currentUserName = ((UserDetails)principal).getUsername();
+//	   	   
+//	   	 } else {
+//	   	   //currentUserName = principal.toString();
+//	   	   return false;
+//	   	 }
+//	   	 
+//	   	 User inputUser = userRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer does not exist customerId:" + id));
+//	   	 String inputUserName = inputUser.getUserName();
+//	   	 if(!inputUserName.equals(currentUserName))
+//	   	 {
+//	   		 System.out.println("currentUser: " + currentUserName + " <h1>you do not have access to this user</h1> " + inputUserName);
+//	   		 return false;
+//
+//	   	 }
+//	   	 //("<h1>hello user</h1> " + currentUserName + "with userId " + id + " you have access");
+//	   	 return true;
+//	    }
 
 
 	  

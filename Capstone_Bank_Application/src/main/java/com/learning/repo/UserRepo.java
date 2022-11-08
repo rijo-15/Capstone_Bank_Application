@@ -8,6 +8,6 @@ import com.learning.entity.User;
 @Repository
 public interface UserRepo extends JpaRepository<User, Long>{
 
-	User findByUsername(String username);
+//	User findByUsername(String username);
 	
 }
