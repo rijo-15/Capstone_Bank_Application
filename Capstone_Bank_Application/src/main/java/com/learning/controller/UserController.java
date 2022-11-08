@@ -7,7 +7,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
-
+//import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,11 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.learning.entity.Account;
 
 import com.learning.entity.Beneficiary;
+import com.learning.entity.Payload;
 import com.learning.entity.User;
 import com.learning.repo.AccountRepo;
 import com.learning.repo.BeneficiaryRepo;
 import com.learning.repo.UserRepo;
-import com.learning.service.UserService;
+//import com.learning.service.UserService;
 
 @RequestMapping("/api/customer")
 @RestController
@@ -35,18 +37,18 @@ public class UserController {
 	@Autowired
 	AccountRepo accountRepo;
 	
-	@Autowired
-	UserService userService;
+	//@Autowired
+	//UserService userService;
 	
 	@Autowired
 	BeneficiaryRepo beneficiaryRepo;
 	
 	
-	//for testing purposes
+	/*//for testing purposes
 	@RequestMapping("/home")
 	public String home() {
 		return ("<h1>Welcome Home</h1>");
-	}
+	}*/
 		// First method Register user (customer role)
 		  @PostMapping("/register")
 		  User newUser(@RequestBody User user){
@@ -89,7 +91,7 @@ public class UserController {
 		   	 
 		    	if(originalAccount.getCustomerId() == customerId)
 		    	{
-		        	originalAccount.setApproved(true);
+		        	originalAccount.setApproved("Yes");
 		    	}
 		    	else{
 		       	throw new RuntimeException("Account: " + accountNo + "does not belong to customerID: " + customerId);
@@ -132,7 +134,7 @@ public class UserController {
 	 * Update the user in the payload if the userName match and exists
 	 * Sixth Method - PUT
 	 */
-	  @PutMapping("/{customer}")
+	  @PutMapping("/{id}")
 
 	  public ResponseEntity<User> updateCustomerDetails(@PathVariable("id") long id, @RequestBody User user){
 		  User updateUser = userRepo.findById(id)
@@ -143,6 +145,8 @@ public class UserController {
 				  updateUser.setLastName(user.getLastName()); 
 				  updateUser.setPhone(user.getPhone()); 
 				  updateUser.setSsn(user.getSsn()); 
+				  updateUser.setRole(user.getRole()); // added this line
+				  updateUser.setStatus(user.getStatus());// added this line
 				  
 				  
 				  userRepo.save(updateUser);
@@ -221,7 +225,81 @@ public class UserController {
 	  
 	  
 	  //Eleventh Method 
-//	  @PutMapping("/transfer")
+	  @PutMapping("/transfer")
+		public Payload transfer(@RequestBody Payload payload) {
+	   	 long fromAccNumber = payload.getFromAccNumber();
+	   	 long toAccNumber = payload.getToAccNumber();
+	   	 
+	   	 //System.out.println("fromAccNumber: " + fromAccNumber);
+	   	 
+	   	 //checks if both accounts exist
+	   	 if(accountRepo.findById(fromAccNumber).isPresent()
+	   			 && accountRepo.findById(toAccNumber).isPresent())
+	   	 {
+	   		  Account fromAcc = accountRepo.findById(fromAccNumber)
+	  				   .orElseThrow(() -> new RuntimeException("Sorry from account with ID: " + fromAccNumber + " not found."));
+	   		 
+	   		  Account toAcc = accountRepo.findById(toAccNumber)
+	 					   .orElseThrow(() -> new RuntimeException("Sorry to account with ID: " + toAccNumber + " not found."));
+	   		 
+	   		 
+	   		  long customerId = payload.getByCustomerId();
+	   		 
+	   		  //checks if account belongs to customer
+	   		  if(fromAcc.getCustomerId() == customerId &&
+	   					  toAcc.getCustomerId() == customerId)
+	   		  {
+	   			  double amountTransfer = payload.getAmount();
+	   			 
+	   			  fromAcc.setAccountBalance(fromAcc.getAccountBalance() - amountTransfer);
+	   			  toAcc.setAccountBalance(toAcc.getAccountBalance() + amountTransfer);
+
+	   			  accountRepo.save(fromAcc);
+	   			  accountRepo.save(toAcc);
+	   			 
+	   			  return payload;
+	   		  }
+	 
+	   	 }
+	   	 
+	   	 return null;
+		}
+		
+
+	  
+	  
+	  
+	  
+	  
+	//checks if current user is calling url of current user or other user
+	 /*
+	    boolean checksCurrentUserUrlCall(long id) {
+	   	 
+	   	 //Used to find current logged in customer
+	   	 Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+	   	 String currentUserName = "error";
+	   	 if (principal instanceof UserDetails) {
+	   	   currentUserName = ((UserDetails)principal).getUsername();
+	   	   
+	   	 } else {
+	   	   //currentUserName = principal.toString();
+	   	   return false;
+	   	 }
+	   	 
+	   	 User inputUser = userRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer does not exist customerId:" + id));
+	   	 String inputUserName = inputUser.getUserName();
+	   	 if(!inputUserName.equals(currentUserName))
+	   	 {
+	   		 System.out.println("currentUser: " + currentUserName + " <h1>you do not have access to this user</h1> " + inputUserName);
+	   		 return false;
+
+	   	 }
+	   	 //("<h1>hello user</h1> " + currentUserName + "with userId " + id + " you have access");
+	   	 return true;
+	    }
+*/
+
 	  
 	  
 	

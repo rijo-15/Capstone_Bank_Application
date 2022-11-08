@@ -4,17 +4,12 @@ package com.learning.entity;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 
 import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.*;
+
 
 @Entity
 @Table
@@ -28,13 +23,17 @@ public class Account {
 	private AccountType accountType;
 	@Column(name="account_balance")
 	private double accountBalance;
-	@Column(name="approved") 
-	private boolean approved; //yes or no
 	@Column(name="date_of_creation")
 	@CreatedDate
 	private Date dateOfCreation;
 	@Column(name="customer_id") //need to remove this since we have a relationship now
 	private long customerId;
+	
+	@Column(name="status", columnDefinition= "varchar(255) default 'null'") //"enabled"
+	private String status;
+	
+	@Column(name="approved", columnDefinition = "varchar(255) default 'no'")  //by default not
+	private String approved; //yes or no
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="refcustomer_id", referencedColumnName="UserId")
@@ -61,10 +60,10 @@ public class Account {
 	public void setAccountBalance(double accountBalance) {
 		this.accountBalance = accountBalance;
 	}
-	public boolean isApproved() {
+	public String getApproved() {
 		return approved;
 	}
-	public void setApproved(boolean approved) {
+	public void setApproved(String approved) {
 		this.approved = approved;
 	}
 	public Date getDateOfCreation() {
@@ -87,7 +86,7 @@ public class Account {
 		super();
 		
 	}
-	public Account(long accountNumber, AccountType accountType, double accountBalance, boolean approved,
+	public Account(long accountNumber, AccountType accountType, double accountBalance, String approved,
 			 long customerId, Date dateOfCreation) {
 		super();
 		this.accountNumber = accountNumber;

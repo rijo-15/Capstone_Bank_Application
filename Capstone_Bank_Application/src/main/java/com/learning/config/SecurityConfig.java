@@ -1,4 +1,4 @@
-package com.learning.config;
+/*package com.learning.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -45,10 +45,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 			.antMatchers("/api/customer/home").permitAll() //pretty much no use (because .antMatchers("/api/customer/**").hasAuthority("USER"))
 			.and().formLogin();
 		
+		http.csrf().disable(); //for post mapping 
 	}
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
 
-}
+}*/
