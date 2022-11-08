@@ -16,7 +16,12 @@ import com.learning.repo.StaffRepo;
 public class StaffController {
 	
 	@Autowired
-	StaffRepo staffRepo;
+
+StaffRepo staffRepo;
+	
+	@Autowired
+	BeneficiaryRepo beneficiaryRepo;
+
 	
 	@GetMapping("/customer")
 	List<User> getAllCustomers()
@@ -29,4 +34,42 @@ public class StaffController {
 		return staffRepo.getCustomerById(id);
 	}
 	
+
+
+
+	
+	
+	
+	//Third Method 
+	//PUT("/api/staff/beneficiary)
+	
+	@PutMapping("/beneficiary")
+	public ResponseEntity<Beneficiary> approveBeneficiary(@PathVariable("id") long id, @RequestBody Beneficiary beneficiary){
+		Beneficiary updateBeneficiary = beneficiaryRepo.findById(id)
+				.orElseThrow(() -> new RuntimeException("not found")); 
+		
+		updateBeneficiary.setapproved(beneficiary.getapproved()); 
+		
+		beneficiaryRepo.save(updateBeneficiary);
+		return ResponseEntity.ok(updateBeneficiary); 
+		
+		
+	}
+	
+	//Fouth Method 
+	//Get("/api/staff/accounts/approve")
+	@GetMapping("/accounts/approve")
+	  List<Beneficiary> beneficiarytoApprove(){
+		
+	   	 return beneficiaryRepo.beneficiaryNotApproved();
+	   	 
+	    }
+	
+	
+	
+
 }
+
+
+}
+
