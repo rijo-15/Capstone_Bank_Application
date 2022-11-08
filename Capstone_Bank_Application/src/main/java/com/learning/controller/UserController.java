@@ -146,6 +146,7 @@ public class UserController {
 				  updateUser.setPhone(user.getPhone()); 
 				  updateUser.setSsn(user.getSsn()); 
 				  updateUser.setRole(user.getRole()); // added this line
+				  updateUser.setStatus(user.getStatus());// added this line
 				  
 				  
 				  userRepo.save(updateUser);

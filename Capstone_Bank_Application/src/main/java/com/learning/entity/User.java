@@ -54,6 +54,16 @@ public class User {
 		this.status = status;
 	}
 	
+	//the date user was created
+	private String dateCreated;
+	
+	public String getDateCreated() {
+		return dateCreated;
+	}
+	public void setDateCreated(String dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+
 	@OneToMany(mappedBy="user")
 	@JsonIgnore //to avoid recursive error
 	Set<Beneficiary> beneficiary = new HashSet<>();
