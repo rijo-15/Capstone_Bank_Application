@@ -1,4 +1,4 @@
-package com.learning.config;
+/*package com.learning.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -52,4 +52,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 		return NoOpPasswordEncoder.getInstance();
 	}
 
-}
+}*/
