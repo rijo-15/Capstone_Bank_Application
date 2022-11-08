@@ -60,7 +60,7 @@ public class Account {
 	public void setAccountBalance(double accountBalance) {
 		this.accountBalance = accountBalance;
 	}
-	public String isApproved() {
+	public String getApproved() {
 		return approved;
 	}
 	public void setApproved(String approved) {
