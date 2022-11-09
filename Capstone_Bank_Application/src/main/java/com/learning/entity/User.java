@@ -41,6 +41,8 @@ public class User {
 	private String phone;
 	@Column(name="Role", columnDefinition = "varchar(255) default 'USER'")
 	private String role;
+	@Column(name="SecurityQuestion", nullable=false)
+	private String SecurityQuestion;
 	/*@Column(name= "active")
 	private boolean active;*/
 	
@@ -130,6 +132,7 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
 	/*public boolean isActive() {
 		return active;
 	}
@@ -137,6 +140,12 @@ public class User {
 		this.active = active;
 	}*/
 	
+	public String getSecurityQuestion() {
+		return SecurityQuestion;
+	}
+	public void setSecurityQuestion(String securityQuestion) {
+		SecurityQuestion = securityQuestion;
+	}
 	public User() {
 		super();
 		
