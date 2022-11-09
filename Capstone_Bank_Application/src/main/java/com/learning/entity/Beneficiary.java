@@ -13,7 +13,7 @@ public class Beneficiary {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="BId") //is a primary key
+	@Column(name="BId", unique=true, nullable=false) //is a primary key
 	private long BId;
 	@Column(name="SSN", unique=true, nullable=false)
 	private long ssn;

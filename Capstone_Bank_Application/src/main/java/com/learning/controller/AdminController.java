@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +17,7 @@ import com.learning.entity.Staff;
 import com.learning.entity.User;
 import com.learning.repo.AdminRepo;
 import com.learning.repo.StaffRepo;
-
+@CrossOrigin 
 @RequestMapping("/api/admin")
 @RestController
 public class AdminController {

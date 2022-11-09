@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 //import org.springframework.security.core.context.SecurityContextHolder;
 //import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,7 @@ import com.learning.repo.BeneficiaryRepo;
 import com.learning.repo.UserRepo;
 //import com.learning.service.UserService;
 
+@CrossOrigin 
 @RequestMapping("/api/customer")
 @RestController
 public class UserController {
