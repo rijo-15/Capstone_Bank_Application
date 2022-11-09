@@ -18,6 +18,10 @@ import { AddbeneficiaryComponent } from './addbeneficiary/addbeneficiary.compone
 import { RemovebeneficiaryComponent } from './removebeneficiary/removebeneficiary.component';
 import { TransfermoneyComponent } from './transfermoney/transfermoney.component';
 import { ViewstatementComponent } from './viewstatement/viewstatement.component';
+import { RegisterstaffComponent } from './registerstaff/registerstaff.component';
+import { ViewstaffComponent } from './viewstaff/viewstaff.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,13 +41,19 @@ import { ViewstatementComponent } from './viewstatement/viewstatement.component'
     TransfermoneyComponent,
     ViewstatementComponent,
     ForgotPasswordComponent,
-    UpdatepasswordComponent
+    UpdatepasswordComponent,
+    RegisterstaffComponent,
+    ViewstaffComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
