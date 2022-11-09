@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <app-header></app-header>
     <body>
+        <div class="imgdiv" [style.background-image]="'url(/assets/images/choice1.jpg)'">
+        <br>
         <div>
+            
         <form action="" method="POST">
             <h2 style="text-align: center;">Register</h2>
             <table>
@@ -31,7 +37,9 @@
                     <td><input  type="text" placeholder="Phone" name="name" id="name"/><br><br></td>
                 </tr>
                 <tr>
-                    <td>
+                    
+                        <td></td>
+                        <td>
                         <select class="ques"id="securityQ" name="securityQ">
                             <option>Choose Security Question Here </option>
                             <option>What was the make of your first car?</option>
@@ -43,12 +51,18 @@
                     </td>
                 </tr>
                 <tr>
-                    <input type="text" />
+                    <td></td>
+                    <td><input type="text" /></td>   
                 </tr>
-                <tr><button type="submit">Register</button></tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit">Register</button></td> 
+                </tr>
             </table>
         
         </form>
     </div>
+</div>
     </body>
+    <app-footer></app-footer>
 </html>

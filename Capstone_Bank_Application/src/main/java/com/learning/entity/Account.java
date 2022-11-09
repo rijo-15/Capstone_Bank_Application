@@ -1,13 +1,16 @@
 package com.learning.entity;
 
 
-import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.*;
 
 
 import org.springframework.data.annotation.CreatedDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -39,9 +42,12 @@ public class Account {
 	@JoinColumn(name="refcustomer_id", referencedColumnName="UserId")
 	private User userAcc; //many account can belongs to one customer
 	
+	@JsonIgnore
+	@OneToMany(mappedBy="")
+	Set<Transaction> transactions = new HashSet<>(); //one account can add make many transactions
+	
 	
 	//setters and getters
-
 	public long getAccountNumber() {
 		return accountNumber;
 	}
@@ -106,4 +112,8 @@ public class Account {
 	public void addAccountToUser(User userAcc) {
 		this.userAcc = userAcc;
 	}
+	//transaction getter method
+		public Set<Transaction> getTransactions() {
+			return transactions;
+		}
 }
