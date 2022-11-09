@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -65,4 +65,44 @@
 </div>
     </body>
     <app-footer></app-footer>
-</html>
+</html> -->
+
+<form [formGroup]="profileForm" (ngSubmit)="submit()">
+    <!-- <form action="action_page.php" method="post"> -->
+    <div class="imgcontainer">
+ 
+    </div>
+    <div class="jumbotron text-center">
+        <div class="container">
+            <h4>
+                <input type="text" placeholder="Enter userName" name="userName" required formControlName="userName">
+           
+                <br>
+                <input type="text" placeholder="Enter password" name="password" formControlName="password">
+                <br>
+ 
+                <!-- name validation -->
+                <div class="alert-danger" *ngIf="f['userName'].touched">
+                    <div *ngIf="f['userName'].invalid" [ngClass] = "'error'"> Name is required </div>
+                    <div *ngIf="f['userName'].errors?.['minlength']" [ngClass] = "'error'">Length must be 4</div>
+                </div>
+ 
+                <!-- <input type="text" placeholder="Enter dept" name="phone" required formControlName="dept">
+                <br>
+                <input type="text" placeholder="Enter salary" name="email" required formControlName="salary">
+                <br>
+                -->
+ 
+                <button type="submit">Register</button><br>
+            </h4>
+        </div>
+    </div>
+</form>
+ 
+<div class="jumbotron text-center">
+    <h1 style="color:green">{{acknowledgement | uppercase}}</h1>
+</div>
+ 
+<h1 [ngStyle]="{'background-color':'green', 'color':'white'}">Welcome back, friend.</h1>
+
+
