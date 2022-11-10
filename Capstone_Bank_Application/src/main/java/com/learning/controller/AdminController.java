@@ -15,15 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.learning.entity.Staff;
 import com.learning.entity.User;
-import com.learning.repo.AdminRepo;
 import com.learning.repo.StaffRepo;
 @CrossOrigin 
 @RequestMapping("/api/admin")
 @RestController
 public class AdminController {
 	
-	@Autowired
-	AdminRepo adminRepo;
 	
 	@Autowired
 	StaffRepo staffRepo;
