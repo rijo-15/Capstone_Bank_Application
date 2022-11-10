@@ -13,16 +13,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.learning.entity.Admin;
 import com.learning.entity.Staff;
 import com.learning.entity.User;
+import com.learning.repo.AdminRepo;
 import com.learning.repo.StaffRepo;
 @CrossOrigin 
 @RequestMapping("/api/admin")
 @RestController
 public class AdminController {
 	
-	
+	@Autowired
+	AdminRepo adminRepo;
 	
 	@Autowired
 	StaffRepo staffRepo;
@@ -31,7 +33,15 @@ public class AdminController {
 	Staff newStaffUser(@RequestBody Staff staff){
 			return staffRepo.save(staff); 
 	}
-
+	
+	@GetMapping("/getadmin")
+	List<Admin> getAdmin(){
+		return adminRepo.findAll();
+	}
+	@PostMapping("/addadmin")
+	Admin addNewAdmin(@RequestBody Admin admin) {
+			return adminRepo.save(admin);
+		}
 	
 	/*
 	@PostMapping("/staff")
