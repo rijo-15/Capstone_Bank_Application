@@ -9,6 +9,7 @@ import javax.persistence.*;
 import javax.persistence.ManyToOne;
 
 @Entity
+@Table
 public class Beneficiary {
 	
 	@Id
@@ -21,9 +22,9 @@ public class Beneficiary {
 	private String bfirstName;
 	@Column(name="BLastName")
 	private String lastName;
-	@Column(name="username", unique=true, nullable=false)
+	@Column(name="BUserName")
 	private String username;
-	@Column(name="Password", nullable=false)
+	@Column(name="Password")
 	private String password;
 	@Column(name="Email")
 	private String email;

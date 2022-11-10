@@ -23,7 +23,7 @@ public class Account {
 	@Column(name="account_number")
 	private long accountNumber;
 	@Column(name="account_type") //is checking or saving
-	private AccountType accountType;
+	private String accountType;
 	@Column(name="account_balance")
 	private double accountBalance;
 	@Column(name="date_of_creation")
@@ -54,10 +54,10 @@ public class Account {
 	public void setAccountNumber(long accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-	public AccountType getAccountType() {
+	public String getAccountType() {
 		return accountType;
 	}
-	public void setAccountType(AccountType accountType) {
+	public void setAccountType(String accountType) {
 		this.accountType = accountType;
 	}
 	public double getAccountBalance() {
@@ -92,7 +92,7 @@ public class Account {
 		super();
 		
 	}
-	public Account(long accountNumber, AccountType accountType, double accountBalance, String approved,
+	public Account(long accountNumber, String accountType, double accountBalance, String approved,
 			 long customerId, Date dateOfCreation) {
 		super();
 		this.accountNumber = accountNumber;
