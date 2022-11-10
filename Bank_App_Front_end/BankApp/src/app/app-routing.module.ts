@@ -14,6 +14,9 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { StaffloginComponent } from './stafflogin/stafflogin.component';
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { RegisterstaffComponent } from './registerstaff/registerstaff.component';
+import { ViewstaffComponent } from './viewstaff/viewstaff.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -30,7 +33,9 @@ const routes: Routes = [
   {path: 'removebeneficiary', component:RemovebeneficiaryComponent},
   {path: 'transfermoney', component:TransfermoneyComponent},
   {path: 'viewstatement', component:ViewstatementComponent},
-  // {path: 'forgotpassword', component: ForgotPasswordComponent}
+  {path: 'admindashboard', component:AdmindashboardComponent},
+  {path: 'registerstaff', component:RegisterstaffComponent},
+  {path: 'viewstaff', component:ViewstaffComponent}
 
 ];
 
