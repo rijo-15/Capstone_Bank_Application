@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { ProfileComponent } from './profile/profile.component';
+import { StaffdashboardComponent } from './staffdashboard/staffdashboard.component';
 import { StaffloginComponent } from './stafflogin/stafflogin.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
@@ -31,6 +33,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     LoginComponent,
     RegistrationComponent,
+    ProfileComponent,
+    StaffdashboardComponent,
     StaffloginComponent,
     AdminloginComponent,
     AdmindashboardComponent,

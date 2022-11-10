@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+   <head></head>
+   <body>
+       <div>
+       <form action="" method="POST">
+           <h2 style="text-align: center;">Profile</h2><h4 style="text-align: right;">Welcome "username" </h4>
+           <table>
+               <tr>
+                <td class="label"> Customer ID:</td>
+                <!-- <td><input type={{ customerId }} placeholder="Customer ID" name="fname" id="name"/></td> -->
+               </tr>
+               <tr>
+                   <td class="label"> First Name: </td>
+                   <td><input  type="text" placeholder="Enter first name" name="fname" id="name"/></td>
+               </tr>
+               <tr>
+                   <td class="label">Last Name: </td>
+                   <td><input  type="text" placeholder="Enter last name" name="lname" id="name"/></td>
+               </tr>
+               <tr>
+                   <td class="label"> Phone Number: </td>
+                   <td><input  type="text" placeholder="Phone" name="name" id="name"/><br><br></td>
+               </tr>
+              
+               <tr>
+                   <td>
+                       <select class="ques"id="securityQ" name="securityQ">
+                           <option>Choose Security Question Here </option>
+                           <option>What was the make of your first car?</option>
+                           <option>What highschool did you attend?</option>
+                           <option>In what city were you born?</option>
+                           <option>What is your mother's maiden name?</option>
+                           <option>What is the name of your first pet?</option>
+                       </select>
+                   </td>
+               </tr>
+               <tr>
+                <td class="label"> Enter Answer: </td>
+                   <input type="text" />
+               </tr>
+
+               <tr><button type="submit">Update</button></tr>
+            
+            </table>
+      
+       </form>
+   </div>
+   </body>
+</html>
+<!-- <tr *ngFor="let user of users">
+    <td>{{ user.username }}</td>
+    <td>{{ user.customerId }}</td>
+</tr> -->

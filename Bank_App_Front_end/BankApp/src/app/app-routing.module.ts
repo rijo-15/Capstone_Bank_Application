@@ -1,5 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
+import { StaffdashboardComponent } from './staffdashboard/staffdashboard.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AddbeneficiaryComponent } from './addbeneficiary/addbeneficiary.component';
 import { CreateaccountComponent } from './createaccount/createaccount.component';
@@ -17,8 +19,10 @@ import { RegisterstaffComponent } from './registerstaff/registerstaff.component'
 import { ViewstaffComponent } from './viewstaff/viewstaff.component';
 
 const routes: Routes = [
+  {path: '', component: LoginComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'staffdashboard', component: StaffdashboardComponent},
   { path: 'registration', component: RegistrationComponent},
-  { path: '', component: LoginComponent},
   { path: 'stafflogin', component: StaffloginComponent},
   { path: 'adminlogin', component: AdminloginComponent},
   {path: 'forgotpassword', component: ForgotPasswordComponent},
@@ -32,6 +36,7 @@ const routes: Routes = [
   {path: 'admindashboard', component:AdmindashboardComponent},
   {path: 'registerstaff', component:RegisterstaffComponent},
   {path: 'viewstaff', component:ViewstaffComponent}
+
 ];
 
 @NgModule({
