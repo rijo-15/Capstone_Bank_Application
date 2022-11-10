@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AddbeneficiaryComponent } from './addbeneficiary/addbeneficiary.component';
 import { CreateaccountComponent } from './createaccount/createaccount.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -14,11 +15,13 @@ import { UpdatepasswordComponent } from './updatepassword/updatepassword.compone
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { RegisterstaffComponent } from './registerstaff/registerstaff.component';
 import { ViewstaffComponent } from './viewstaff/viewstaff.component';
+import { StaffdashboardComponent } from './staffdashboard/staffdashboard.component';
 
 const routes: Routes = [
   { path: 'registration', component: RegistrationComponent},
   { path: '', component: LoginComponent},
   { path: 'stafflogin', component: StaffloginComponent},
+  { path: 'adminlogin', component: AdminloginComponent},
   {path: 'forgotpassword', component: ForgotPasswordComponent},
   {path: 'updatepassword', component: UpdatepasswordComponent},
   {path: 'dashboard', component:DashboardComponent},
@@ -29,7 +32,8 @@ const routes: Routes = [
   {path: 'viewstatement', component:ViewstatementComponent},
   {path: 'admindashboard', component:AdmindashboardComponent},
   {path: 'registerstaff', component:RegisterstaffComponent},
-  {path: 'viewstaff', component:ViewstaffComponent}
+  {path: 'viewstaff', component:ViewstaffComponent},
+  {path: 'staffdashboard', component:StaffdashboardComponent}
 ];
 
 @NgModule({

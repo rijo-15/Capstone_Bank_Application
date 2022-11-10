@@ -41,16 +41,13 @@ stafflogin(){
       console.log(this.users)
       for(let i=0; i<data.length; i++){
         console.log("Hi staff", this.users[i].username);
-
-        if(this.user.username == "admin@admin.com" && this.user.password == 'secret@123'){
-          console.log("uname test",this.users[i].username);
-          console.log("password test",this.users[i].password);
+        if(this.user.username == "admin@admin.com" && this.user.password =="secret@123"){
           console.log("sucessfully logged in!")
           this.router.navigate(['/admindashboard']);
           break;
-        }else if(this.user.username == this.users[i].username && this.user.password == this.users[i].password){
+        }if(this.user.username == this.users[i].username && this.user.password == this.users[i].password){
           console.log("sucessfully logged in!")
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/staffdashboard']);
           break;
         }else{
           this.ack="Username or password is incorret!"

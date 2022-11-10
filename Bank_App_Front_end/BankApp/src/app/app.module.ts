@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { StaffloginComponent } from './stafflogin/stafflogin.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
@@ -21,6 +22,8 @@ import { RegisterstaffComponent } from './registerstaff/registerstaff.component'
 import { ViewstaffComponent } from './viewstaff/viewstaff.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StaffdashboardComponent } from './staffdashboard/staffdashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     RegistrationComponent,
     StaffloginComponent,
+    AdminloginComponent,
     AdmindashboardComponent,
     DashboardComponent,
     CreateaccountComponent,
@@ -41,7 +45,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ForgotPasswordComponent,
     UpdatepasswordComponent,
     RegisterstaffComponent,
-    ViewstaffComponent
+    ViewstaffComponent,
+    StaffdashboardComponent,
+    
   ],
   imports: [
     BrowserModule,

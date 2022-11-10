@@ -1,34 +1,68 @@
-<p>addbeneficiary works!</p>
 <head>
-    <style>
-div {
-  width: 300px;
-  height: 500px;
-  border: 10px solid green;
-  padding: 10px;
-  margin: 10px;
+  <style>
+div.leftbox {
+width: 300px;
+height: 500px;
+border: 10px solid green;
+padding: 10px;
+margin: 10px;
+float:left;
+font-weight: bold;
+font-size: larger;
+width:300px;
+}
+div.rightbox{
+width: 300px;
+height: 500px;
+border: 10px solid green;
+padding: 10px;
+margin: 10px;
+width:450px;
+float:right;
 }
 div.thick {
-  font-weight: bold;
-  font-size: larger;
+font-weight: bold;
+font-size: larger;
 }
 table, th, td {
-  border: 1px solid;
+border: 1px solid;
 }
-    </style>
+  </style>
 </head>
-
+ 
 <h1 style="text-align: center;">
-    Dashboard
+  Dashboard
 </h1>
-
-<div style="width:300px; float:left; font-weight: bold; font-size: larger;">
-    <a href="createaccount"><ul style = "height: 75px;">Create Account</ul></a>
-    <a href="addbeneficiary"><ul style = "height: 75px;" >Add Beneficiary</ul></a>
-    <a href="removebeneficiary"><ul style = "height: 75px;">Remove Beneficiary</ul></a>
-    <a href="transfermoney"><ul style = "height: 75px;">Transfer Money</ul></a>
-    <a href="viewstatement"><ul style = "height: 75px;" > View Statement</ul></a>
+ 
+<div class="leftbox">
+  <a href="createaccount"><ul style = "height: 75px;">Create Account</ul></a>
+  <a href="addbeneficiary"><ul style = "height: 75px;" >Add Beneficiary</ul></a>
+  <a href="removebeneficiary"><ul style = "height: 75px;">Remove Beneficiary</ul></a>
+  <a href="transfermoney"><ul style = "height: 75px;">Transfer Money</ul></a>
+  <a href="dashboard"><ul style = "height: 75px;" > View Statement</ul></a>
 </div>
-<div style="width:450px; float:right;">
-
+<div class="rightbox">
+<form [formGroup]="profileForm" (ngSubmit)="submit()">
+  <!-- <form action="action_page.php" method="post"> -->
+  <div class="imgcontainer">
+ 
+  </div>
+  <div class="jumbotron text-center">
+    <h1>Add Beneficiary</h1>
+      <div class="container">
+          <h4>
+              <h1>Enter Beneficiary First Name</h1>
+              <input type="text" placeholder="Enter Beneficiary First Name" name="bfirstName" required formControlName="bfirstName">
+              <br>
+              <h1>Enter Beneficiary Last Name</h1>
+              <input type="text" placeholder="Enter Beneficiary Last Name" name="lastName" required formControlName="lastName">
+              <br>
+              <h1>Enter Beneficiary ssn</h1>
+              <input tyep="text" placeholder="Enter Beneficiary ssn" name="ssn" required formControlName="ssn">
+              <br>
+              <button type="submit">Submit</button><br>
+          </h4>
+      </div>
+  </div>
+</form>
 </div>
