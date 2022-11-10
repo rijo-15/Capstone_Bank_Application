@@ -16,10 +16,11 @@ export class LoginComponent implements OnInit {
  ack: any;
  user: User = new User();
  users: any;
+ pak: any; 
  constructor(private signupService: LoginService, private router: Router) { }
  
  ngOnInit(): void {
-   this.ack = "Please type the Id and Dept!"
+   
  }
  
  profileForm = new FormGroup({
@@ -58,10 +59,20 @@ export class LoginComponent implements OnInit {
            console.log("success")
            this.router.navigate(['/dashboard']);
            break;
-         } else {
+         } if(this.user.username != this.users[i].userName){
+          this.ack="Username doesn't exsist"
+          break;
+         }if(this.user.password != this.users[i].password){
+          this.ack="Inncorrect Password"
+          break;
+         }
+
+         else {
  
            // this.router.navigate(['']);
-           this.ack = "Id or Password Incorrect!"
+           this.ack = " Wrong username and password"
+           
+           
  
          }
        }
