@@ -7,11 +7,11 @@
         <body>
             <br>
         <div style="display: flex; justify-content: space-around;">
-            <form action="" method="GET">
+            <form [formGroup]="profileForm" (ngSubmit)="stafflogin()">
                 <br>
                 <h2 style="text-align: center;">Staff Login</h2>
-                <input type="text" id="uname"placeholder="Username " required/><br><br>
-                <input type="password" id="pwd" placeholder="Password    " required/><br><br>
+                <input type="text" id="uname" name="username" placeholder="Username " required formControlName="username"/><br><br>
+                <input type="password" id="pwd" name="password" placeholder="Password    " required formControlName="password"/><br><br>
                  <button type="submit" >Login</button><br><br> 
                   Owning An Account With Us <br> 
                <a style="text-align: center;" href="">LOGIN HERE</a>

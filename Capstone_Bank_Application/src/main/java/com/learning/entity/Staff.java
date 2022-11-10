@@ -2,6 +2,8 @@ package com.learning.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,12 +12,17 @@ import javax.persistence.Table;
 public class Staff {
 	
 	@Id
-	@Column(name= "staffId")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name= "id")
 	private long id; 
 	@Column(name = "username")
 	private String username; 
 	@Column(name = "password")
 	private String password; 
+	@Column(name = "fname")
+	private String fname; 
+	@Column(name = "lname")
+	private String lname; 
 	@Column(columnDefinition = "varchar(255) default 'STAFF'", name = "role")
 	private String role;
 	@Column(columnDefinition = "varchar(255) default 'Enabled'", name = "status")
@@ -38,6 +45,19 @@ public class Staff {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getFname() {
+		return fname;
+	}
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+	public String getLname() {
+		return lname;
+	}
+	public void setLname(String lname) {
+		this.lname = lname;
 	}
 	public String getRole() {
 		return role;
