@@ -1,4 +1,11 @@
 table{
+    margin-left: auto;
+    margin-right: auto;
+}
+td{
+    text-align: center;
+    padding-right: 15px;
+    padding-left: 15px;
     
 }
 
@@ -8,4 +15,11 @@ div{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+}
+button{
+    font-size: large;
+    padding: 12px 28px;
+    background-color: aquamarine;
+    border-radius: 8px;
+    color: black;
 }
