@@ -1,4 +1,4 @@
-div{
+/* div{
   background-color: whitesmoke;
   width: 400px;
   height: 470px;
@@ -38,3 +38,36 @@ a{
 .imgdiv{
   height: 900px;
      }
+      */
+
+      div{
+        background-color: whitesmoke;
+        width: 400px;
+        height: 470px;
+        margin-left: auto; 
+        margin-right: 100px;
+    }
+    form{
+          align-items: center;
+          justify-content: center;
+         
+    }
+    input{
+     padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button{
+      padding: 10px;
+      width: 200px;
+      border: 1px solid #ccc;
+      background-color: #24a0ed;
+      border-radius: 4px;
+    }
+    a{
+      color: blue;
+    }
+    .btn btn-primary btn-lg{
+      width: 350px;
+    }
+    

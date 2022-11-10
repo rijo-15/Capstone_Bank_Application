@@ -214,7 +214,7 @@ public class UserController {
 	  
 	  
 	  //Tenth Method - Delete(/:customerID/beneficiary/:beneficiaryID) 
-	  @DeleteMapping("{customerID}/beneficiary/{beneficiaryID}")	  
+	  @DeleteMapping("{customerID}/beneficiary/{id}")	  
 	  String deleteBeneficiaryById(@PathVariable("id") long id) {
 		  try {
 			  beneficiaryRepo.deleteById(id);
