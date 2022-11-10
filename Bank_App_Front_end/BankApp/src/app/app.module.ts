@@ -24,6 +24,10 @@ import { RegisterstaffComponent } from './registerstaff/registerstaff.component'
 import { ViewstaffComponent } from './viewstaff/viewstaff.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewaccountComponent } from './viewaccount/viewaccount.component';
+import { ApprovebeneficiaryComponent } from './approvebeneficiary/approvebeneficiary.component';
+import { TransferpageComponent } from './transferpage/transferpage.component';
+import { ApproveaccountComponent } from './approveaccount/approveaccount.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ForgotPasswordComponent,
     UpdatepasswordComponent,
     RegisterstaffComponent,
-    ViewstaffComponent
+    ViewstaffComponent,
+    ViewaccountComponent,
+    ApprovebeneficiaryComponent,
+    TransferpageComponent,
+    ApproveaccountComponent
   ],
   imports: [
     BrowserModule,

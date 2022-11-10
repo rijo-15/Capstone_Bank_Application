@@ -1,0 +1,44 @@
+<div>
+    <!-- <p>dashboard works!</p> -->
+<head>
+<style>
+div {
+width: 850px;
+height: 500px;
+border: 10px solid green;
+padding: 10px;
+margin: 10px;
+}
+div.thick {
+font-weight: bold;
+font-size: larger;
+}
+table, th, td {
+border: 1px solid;
+}
+</style>
+</head>
+
+<h3 style="text-align: center;">
+Staff Dashboard
+<input  type="text" placeholder="Enter Account Number" name="accountNumber" id="accountNumber"/>
+<button type="submit">Go</button>
+<!-- <h4> AC No:{{AccountNo}}  Name:{{Name}}  Balance: {{Balance}}</h4> -->
+</h3>
+    
+        <table style="width:100%;" >
+            <tr><th colspan="4">Account Details</th></tr>
+            <tr>
+                <th>Date</th>
+                <th>Reference</th>
+                <th>Amount</th>
+                <th>Cr/Db</th>
+            </tr>
+            <tr *ngFor="let user of Users">
+                <td>{{user.transactionDate}}</td>
+                <td>{{user.reference}}</td>
+                <td>{{user.amount}}  </td>
+                <td>{{user.account_type}}  </td>
+            </tr>
+        </table>
+</div>

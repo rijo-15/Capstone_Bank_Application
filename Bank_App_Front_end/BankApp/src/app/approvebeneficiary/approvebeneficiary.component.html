@@ -1,0 +1,38 @@
+<head>
+    <style>
+div {
+  width: 850px;
+  height: 500px;
+  border: 10px solid green;
+  padding: 10px;
+  margin: 10px;
+}
+div.thick {
+  font-weight: bold;
+  font-size: larger;
+}
+table, th, td {
+  border: 1px solid;
+}
+    </style>
+</head>
+
+<h3 style="text-align: center;">
+    Staff Dashboard
+</h3>
+        
+            <table style="width:100%;" >
+                <tr><th colspan="4">Newly Added Beneficiary</th></tr>
+                <tr>
+                    <th>From Customer Name-Customer ID</th>
+                    <th>Beneficiary Name-AccountNo</th>
+                    <th>Beneficiary Added Date</th>
+                    <th>Approve</th>
+                </tr>
+                <tr *ngFor="let beneficiary of Users">
+                  <td>{{user.customer_id}}</td>
+                  <td>{{user.bfirstName}}{{</td>
+                  <!-- <td>{{user.date_of_creation}}  </td>
+                  <td>{{user.status}}</td> -->
+              </tr>
+            </table>

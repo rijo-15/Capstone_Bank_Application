@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Staff } from '../staff';
 
 @Component({
   selector: 'app-staffdashboard',
@@ -12,4 +14,4 @@ export class StaffdashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-}
+ }

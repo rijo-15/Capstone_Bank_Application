@@ -1,0 +1,51 @@
+
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <app-header></app-header>
+    <body>
+        <br><br>
+        <div>
+            
+        <form [formGroup]="profileForm" (ngSubmit)="submit()">
+            <br>
+            <h4 style="text-align: center; color: rgb(222, 42, 42);">Please fill the Transfer Information</h4>
+            <table>
+                <tr>
+                    <td class="label"> From Account Number</td>
+                    <td><input type="text" placeholder="Enter From Account Number" name="accountNumber" formControlName="accountNumber"></td>
+                </tr>
+                <br>
+                <tr>
+                    <td class="label">To Account Number</td>
+                    <td><input type="text" placeholder="Enter To Account Number" name="accountNumber" required formControlName="accountNumber"></td>
+                </tr>
+                <br>
+                <tr>
+                    <td class="label">Amount</td>
+                    <td><input type="text" placeholder="Enter amount" name="amount" required formControlName="amount"></td>
+                </tr>
+                <br>
+                <tr>
+                    <td class="label">Remarks</td>
+                    <td><input type="text" placeholder="Enter reference" name="reference" formControlName="reference"></td>
+                </tr>
+                <br>
+                        
+                <tr>
+                    <td></td>
+                    <td><button type="submit">Transfer</button></td> 
+                </tr>
+                
+                <tr>
+            
+                </tr>
+                
+            </table>
+        
+        </form>
+    </div>
+    <br><br>
+
+    </body>
+    <app-footer></app-footer>

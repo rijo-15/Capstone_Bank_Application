@@ -17,9 +17,13 @@ import { UpdatepasswordComponent } from './updatepassword/updatepassword.compone
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { RegisterstaffComponent } from './registerstaff/registerstaff.component';
 import { ViewstaffComponent } from './viewstaff/viewstaff.component';
+import { ApprovebeneficiaryComponent } from './approvebeneficiary/approvebeneficiary.component';
+import { ApproveaccountComponent } from './approveaccount/approveaccount.component';
+import { ViewaccountComponent } from './viewaccount/viewaccount.component';
+import { TransferpageComponent } from './transferpage/transferpage.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
+  {path: ' ', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'staffdashboard', component: StaffdashboardComponent},
   { path: 'registration', component: RegistrationComponent},
@@ -35,8 +39,11 @@ const routes: Routes = [
   {path: 'viewstatement', component:ViewstatementComponent},
   {path: 'admindashboard', component:AdmindashboardComponent},
   {path: 'registerstaff', component:RegisterstaffComponent},
-  {path: 'viewstaff', component:ViewstaffComponent}
-
+  {path: 'viewstaff', component:ViewstaffComponent},
+  {path: 'transferpage', component:TransferpageComponent},
+  {path: 'viewaccount', component:ViewaccountComponent},
+  {path: 'approveaccount', component:ApproveaccountComponent},
+  {path: 'approvebeneficiary', component:ApprovebeneficiaryComponent},
 ];
 
 @NgModule({
