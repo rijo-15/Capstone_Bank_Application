@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Staff } from '../staff';
+import { StaffService } from '../staff.service';
 
 @Component({
   selector: 'app-viewstaff',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewstaffComponent implements OnInit {
 
-  constructor() { }
+  
 
   ngOnInit(): void {
   }
+user: Staff = new Staff();
+users: any;
 
+constructor(private signupService: StaffService) { }
+
+readStaff(){
+  this.signupService.getstaffList()
+    .subscribe(data =>
+      {this.users=data},error=>console.log(error));
+      
+}
 }

@@ -6,24 +6,27 @@
     <body>
         <br>
         <div>
-<form action="" method="POST">
+<form [formGroup]="profileForm" (ngSubmit)="submit()" >
     <h2 style="text-align: center;">Add Staff</h2>
     <table>
+       
         <tr>
-            <td><input  type="text" placeholder="Enter staff First Name" name="fname" id="name" required/></td>
+            <td><input  type="text" placeholder="Enter staff First Name" name="fname" id="name" formControlName="fname" required /></td>
         </tr>
         <tr>
-            <td><input  type="text" placeholder="Enter staff Last Name" name="lname" /></td>
+            <td><input  type="text" placeholder="Enter staff Last Name" name="lname" formControlName="lname" /></td>
+        </tr>
+        
+        <tr>
+            <td><input  type="text" placeholder="Enter Staff Username" name="username" formControlName="username"/></td>
         </tr>
         <tr>
-            <td><input  type="text" placeholder="Enter Staff Username" name="uname" /></td>
+            <td><input  type="password" placeholder="Enter Secure Password" name="password" formControlName="password"/></td>
         </tr>
+        <!-- 
         <tr>
-            <td><input  type="password" placeholder="Enter Secure Password" name="pwd" /></td>
-        </tr>
-        <tr>
-            <td><input  type="password" placeholder="Re Enter Password" name="pwd" /></td>
-        </tr>
+            <td><input  type="password" placeholder="Re Enter Password" name="password" formControlName="password"/></td>
+        </tr> -->
         <tr>
             <td>
                 <button type="submit">Create</button>

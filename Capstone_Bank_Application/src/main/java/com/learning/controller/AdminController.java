@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.learning.entity.Admin;
 import com.learning.entity.Staff;
 import com.learning.entity.User;
 import com.learning.repo.AdminRepo;
@@ -32,6 +33,16 @@ public class AdminController {
 	Staff newStaffUser(@RequestBody Staff staff){
 			return staffRepo.save(staff); 
 	}
+	
+	@GetMapping("/getadmin")
+	List<Admin> getAdmin(){
+		return adminRepo.findAll();
+	}
+	@PostMapping("/addadmin")
+	Admin addNewAdmin(@RequestBody Admin admin) {
+			return adminRepo.save(admin);
+		}
+	
 	/*
 	@PostMapping("/staff")
 	User newStaffUser(@RequestBody User user){
@@ -56,7 +67,7 @@ public class AdminController {
 	* /api/admin/staff
 	*/
 	
-	@GetMapping("/staff")
+	@GetMapping("/getstaffs")
 	List<Staff> getAllStaff(){
 		return staffRepo.findAll();
 	}
