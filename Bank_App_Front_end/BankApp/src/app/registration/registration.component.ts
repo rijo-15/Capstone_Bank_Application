@@ -32,6 +32,16 @@ profileForm = new FormGroup({
  
  userName: new FormControl('', [Validators.required, Validators.minLength(4)]),
  password: new FormControl('', [Validators.required,Validators.minLength(4)]),
+//  userid: new FormControl('', )
+ ssn : new FormControl('', [Validators.required,Validators.minLength(4)]),
+ firstName: new FormControl('', [Validators.required,Validators.minLength(4)]),
+ lastName: new FormControl('', [Validators.required,Validators.minLength(4)]),
+ //username: any;
+ //password: any;
+ email : new FormControl('', [Validators.required,Validators.minLength(4)]),
+ phone : new FormControl('', [Validators.required,Validators.minLength(4)]),
+ role: new FormControl('', [Validators.required,Validators.minLength(4)]),
+ securityQuestion: new FormControl('', [Validators.required,Validators.minLength(4)])
  //dept: new FormControl('', [Validators.required]),
  //salary: new FormControl('', [Validators.required]),
  
@@ -50,6 +60,14 @@ submit() {
  
  this.user.userName=this.f['userName'].value;         //Angular
  this.user.password=this.f['password'].value;
+ this.user.ssn=this.f['ssn'].value;
+ this.user.firstName=this.f['firstName'].value;
+ this.user.lastName=this.f['lastName'].value;
+ this.user.email=this.f['email'].value;
+ this.user.phone=this.f['phone'].value;
+ //this.user.role=this.f['role'].value;
+ this.user.securityQuestion=this.f['securityQuestion'].value;
+
  //this.user.dept=this.f['dept'].value;
  //this.user.salary=this.f['salary'].value;
  
@@ -59,7 +77,8 @@ console.log("Amit",this.user.userName);
  //Post Operationwill be executed here
  if(this.user.userName!='' && this.user.userName!=null && this.user.userName.length>=4){
  this.addUser();
- this.router.navigate(['/dashboard'])
+ //this.router.navigate(['/dashboard'])
+ this.router.navigate([''])
  }
  //this.signupService.createuserlist(this.user)
  //Here logic will be there Develop your application can add logic here to call API Hit

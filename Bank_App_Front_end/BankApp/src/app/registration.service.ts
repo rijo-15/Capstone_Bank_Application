@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class RegistrationService {
  
-  //constructor() { }
   private baseUrl = 'http://localhost:9090';
  
  

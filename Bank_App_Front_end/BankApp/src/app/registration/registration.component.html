@@ -1,40 +1,49 @@
-<!-- <!DOCTYPE html>
-<html>
+
     <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <app-header></app-header>
     <body>
-        <div class="imgdiv" [style.background-image]="'url(/assets/images/choice1.jpg)'">
-        <br>
+        <br><br>
         <div>
             
-        <form action="" method="POST">
-            <h2 style="text-align: center;">Register</h2>
+        <form [formGroup]="profileForm" (ngSubmit)="submit()">
+            <br>
+            <h4 style="text-align: center; color: rgb(222, 42, 42);">Please fill the form to Register</h4>
             <table>
                 <tr>
                     <td class="label"> First Name</td>
-                    <td><input  type="text" placeholder="Enter first name" name="fname" id="name"/></td>
+                    <td><input type="text" placeholder="Enter First Name" name="firstName" formControlName="firstName"></td>
                 </tr>
+                <br>
                 <tr>
                     <td class="label">Last Name</td>
-                    <td><input  type="text" placeholder="Enter last name" name="lname" id="name"/></td>
+                    <td><input type="text" placeholder="Enter Last Name" name="lastName" required formControlName="lastName"></td>
                 </tr>
+                <br>
                 <tr>
                     <td class="label"> Username</td>
-                    <td><input  type="text" placeholder="User name" name="uname" id="name"/></td>
+                    <td><input type="text" placeholder="Enter username" name="userName" required formControlName="userName"></td>
                 </tr>
+                <br>
                 <tr>
                     <td class="label">Password</td>
-                    <td><input  type="password" placeholder="Password" name="pwd" id="name"/></td>
+                    <td><input type="text" placeholder="Enter password" name="password" formControlName="password"></td>
                 </tr>
+                <br>
                 <tr>
                     <td class="label">Email</td>
-                    <td> <input  type="text" placeholder="Email" name="email" id="name"/></td>
+                    <td> <input type="text" placeholder="Enter email" name="email" formControlName="email"></td>
                 </tr>
+                <br>
                 <tr>
                     <td class="label">Phone</td>
-                    <td><input  type="text" placeholder="Phone" name="name" id="name"/><br><br></td>
+                    <td><input type="text" placeholder="Enter Phone" name="phone" formControlName="phone"><br></td>
+                </tr>
+                <br>
+                <tr>
+                    <td class="label">SSN</td>
+                    <td><input type="text" placeholder="Enter SSN" name="ssn" formControlName="ssn"><br><br></td>
                 </tr>
                 <tr>
                     
@@ -50,59 +59,72 @@
                         </select>
                     </td>
                 </tr>
+                <br>
                 <tr>
-                    <td></td>
-                    <td><input type="text" /></td>   
+                    <td class="label">Security Answer</td>
+                    <td><input type="text" placeholder="Enter Security Answer" name="securityQuestion" formControlName="securityQuestion"></td>   
                 </tr>
+                <br>
                 <tr>
                     <td></td>
                     <td><button type="submit">Register</button></td> 
                 </tr>
+                
+                <tr>
+            
+                </tr>
+                
             </table>
         
         </form>
     </div>
-</div>
+    <br><br>
+
     </body>
     <app-footer></app-footer>
-</html> -->
 
-<form [formGroup]="profileForm" (ngSubmit)="submit()">
-    <!-- <form action="action_page.php" method="post"> -->
+
+
+
+
+
+<!-- <form [formGroup]="profileForm" (ngSubmit)="submit()">
     <div class="imgcontainer">
  
     </div>
     <div class="jumbotron text-center">
         <div class="container">
             <h4>
-                <input type="text" placeholder="Enter userName" name="userName" required formControlName="userName">
+                <input type="text" placeholder="Enter username" name="userName" required formControlName="userName">
            
                 <br>
                 <input type="text" placeholder="Enter password" name="password" formControlName="password">
                 <br>
- 
-                <!-- name validation -->
-                <div class="alert-danger" *ngIf="f['userName'].touched">
-                    <div *ngIf="f['userName'].invalid" [ngClass] = "'error'"> Name is required </div>
-                    <div *ngIf="f['userName'].errors?.['minlength']" [ngClass] = "'error'">Length must be 4</div>
-                </div>
- 
-                <!-- <input type="text" placeholder="Enter dept" name="phone" required formControlName="dept">
+                <input type="text" placeholder="Enter ssn" name="ssn" required formControlName="ssn">
+           
                 <br>
-                <input type="text" placeholder="Enter salary" name="email" required formControlName="salary">
+                <input type="text" placeholder="Enter First Name" name="firstName" formControlName="firstName">
                 <br>
-                -->
+                <input type="text" placeholder="Enter Last Name" name="lastName" required formControlName="lastName">
+           
+                <br>
+                <input type="text" placeholder="Enter email" name="email" formControlName="email">
+                <br>
+                <br>
+                <input type="text" placeholder="Enter Phone" name="phone" formControlName="phone">
+                <br><br>
  
-                <button type="submit">Register</button><br>
+                 <button type="submit">Register</button><br>
             </h4>
+            <h1 style="color:green">{{acknowledgement | uppercase}}</h1>
         </div>
     </div>
-</form>
+ </form>  -->
  
-<div class="jumbotron text-center">
+ <!-- <div class="jumbotron text-center">
     <h1 style="color:green">{{acknowledgement | uppercase}}</h1>
-</div>
+</div> 
  
-<h1 [ngStyle]="{'background-color':'green', 'color':'white'}">Welcome back, friend.</h1>
+<h1 [ngStyle]="{'background-color':'green', 'color':'white'}">Welcome back, friend.</h1> -->
 
 
