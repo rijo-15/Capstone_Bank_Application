@@ -214,16 +214,16 @@ public class UserController {
 	  
 	  
 	  //Tenth Method - Delete(/:customerID/beneficiary/:beneficiaryID) 
-//	  @DeleteMapping("{customerID}/beneficiary/{id}")	  
-//	  String deleteBeneficiaryById(@PathVariable("id") long id) {
-//		  try {
-//			  beneficiaryRepo.deleteById(id);
-//			  return "Beneficiary Deleted Successfully"; 
-//		  }catch(Exception e) {
-//			  e.printStackTrace();
-//			  return "Beneficiary Not Delete"; 
-//		  }
-//	  }
+	  @DeleteMapping("{customerID}/beneficiary/{id}")	  
+	  String deleteBeneficiaryById(@PathVariable("id") long id) {
+		  try {
+			  beneficiaryRepo.deleteById(id);
+			  return "Beneficiary Deleted Successfully"; 
+		  }catch(Exception e) {
+			  e.printStackTrace();
+			  return "Beneficiary Not Delete"; 
+		  }
+	  }
 	  
 	  
 	  //Eleventh Method 
