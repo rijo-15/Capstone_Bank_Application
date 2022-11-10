@@ -4,21 +4,23 @@
 
     </head>
     <body>
+        <button class="btn btn-danger btn-rounded" (click)="readStaff()"> Display Staff</button>
         <table>
             <tr>
                 <td>Staff Id</td>
                 <td>Username</td>
                 <td>First Name</td>
                 <td>Last Name</td>
-                <td>Status</td>
+              
             </tr>
-            <tr>
-                <td></td>
-                <td>  </td>
-                <td>  </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.fname}}  </td>
+                <td>{{user.lname}}  </td>
+                
+            
+               
             </tr>
         </table>
     </body>
