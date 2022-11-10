@@ -89,7 +89,6 @@ console.log("Amit",this.user.userName);
    this.user= new Registration();
    this.acknowledgement = "Record added successfully";
  }
- 
- 
- 
+
+   
 }

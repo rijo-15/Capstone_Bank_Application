@@ -37,6 +37,8 @@ export class RegistrationService {
     return this.http.delete(`${this.baseUrl}` + `/api/employee/deleteemployee/`+ `${id}`, {responseType: 'text'});  //will change
  
   }
+
+  
  
  
 }

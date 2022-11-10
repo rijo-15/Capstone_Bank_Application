@@ -3,11 +3,24 @@
    <head>
       
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <style>
+        body{
+      background-image: url("/assets/images/choice5.jpg");
+      background-repeat: no-repeat;
+      background-color: #cccccc;
+      background-size: cover;
+    }
+      </style>
    </head>
    <app-header></app-header>
        <body>
-           <br>
+
+        <!-- <span class="bgimg">
+        <img src="/assets/images/bankbgpic.jpeg" alt="bank Logo" height="70" width="70" />
+        </span> -->
+
           <!--<div class="imgdiv" [style.background-image]="'url(/assets/images/choice1.jpg)'"> -->
+            <br><br>
                <div style="display: flex; justify-content: space-around;">
                    <form [formGroup]="profileForm" (ngSubmit)="login()">
                        <br>
@@ -18,6 +31,10 @@
                       <a href="forgotpassword">Forgot Password?</a><br><br>
                       Not A Customer <a href="registration">Register Here</a>
                       </form>
-               </div>     
+               </div>
+
+               <br><br><br><br><br>
+
    </body>
+   <app-footer></app-footer>
   </html>
