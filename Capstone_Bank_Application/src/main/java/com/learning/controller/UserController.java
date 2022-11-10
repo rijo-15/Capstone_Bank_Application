@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 //import org.springframework.security.core.context.SecurityContextHolder;
 //import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -205,25 +206,24 @@ public class UserController {
 	  
 	  
 	  //Nine Method -  GET(/:customerID/beneficiary) 
-//	  @GetMapping("/{customerID}/beneficiary")	  
-//	    List<Beneficiary> findAccountsByBeneficiaryId(@PathVariable("beneficiary_id") long beneficiary_id){
-//	   	 return accountRepo.findAccountsByCustomerId(customer_id);
-//	   	 
-//	    }
+	  @GetMapping("/{id}/beneficiary")      
+	  	List<Beneficiary> findAccountsByBeneficiaryId(@PathVariable("id") long id){
+			  return beneficiaryRepo.findAllBeneficiarybyId(id);
+	  	}
 	  
 	  
 	  
 	  //Tenth Method - Delete(/:customerID/beneficiary/:beneficiaryID) 
-//	  @DeleteMapping("{customerID}/beneficiary/{beneficiaryID}")	  
-//	  String deleteBeneficiaryById(@PathVariable("id") long id) {
-//		  try {
-//			  beneficiaryRepo.deleteById(id);
-//			  return "Beneficiary Deleted Successfully"; 
-//		  }catch(Exception e) {
-//			  e.printStackTrace();
-//			  return "Beneficiary Not Delete"; 
-//		  }
-//	  }
+	  @DeleteMapping("{customerID}/beneficiary/{beneficiaryID}")	  
+	  String deleteBeneficiaryById(@PathVariable("id") long id) {
+		  try {
+			  beneficiaryRepo.deleteById(id);
+			  return "Beneficiary Deleted Successfully"; 
+		  }catch(Exception e) {
+			  e.printStackTrace();
+			  return "Beneficiary Not Delete"; 
+		  }
+	  }
 	  
 	  
 	  //Eleventh Method 
