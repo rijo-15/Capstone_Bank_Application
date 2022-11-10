@@ -7,21 +7,22 @@ public class Admin {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="adminId",unique=true, nullable=false)
-	private long adminId;
-	@Column(name="adminUsername",unique=true, nullable=false)
+	@Column(name="id",unique=true, nullable=false)
+	private long id;
+	@Column(name="username",unique=true, nullable=false)
 	private String username;
-	@Column(name="adminPassword", nullable=false)
+	@Column(name="password", nullable=false)
 	private String password;
 	@Column(name="adminfn", nullable=false)
 	private String firstname;
 	@Column(name="adminln", nullable=false)
 	private String Lastname;
-	public long getAdminId() {
-		return adminId;
+	
+	public long getId() {
+		return id;
 	}
-	public void setAdminId(long adminId) {
-		this.adminId = adminId;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getUsername() {
 		return username;
