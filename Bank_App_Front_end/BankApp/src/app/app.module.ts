@@ -22,6 +22,8 @@ import { RegisterstaffComponent } from './registerstaff/registerstaff.component'
 import { ViewstaffComponent } from './viewstaff/viewstaff.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StaffdashboardComponent } from './staffdashboard/staffdashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ForgotPasswordComponent,
     UpdatepasswordComponent,
     RegisterstaffComponent,
-    ViewstaffComponent
+    ViewstaffComponent,
+    StaffdashboardComponent,
+    
   ],
   imports: [
     BrowserModule,
