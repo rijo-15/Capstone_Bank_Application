@@ -21,5 +21,17 @@ button{
     padding: 12px 28px;
     background-color: aquamarine;
     border-radius: 8px;
-    color: black;
+    color: white;
+    background-color: rgb(23, 104, 23);
+}
+button:hover{
+    background-color: rgb(44, 111, 44);
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    
+}
+a:hover{
+    text-decoration: none;
 }

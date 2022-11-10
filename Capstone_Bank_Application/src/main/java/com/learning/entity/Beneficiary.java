@@ -21,7 +21,7 @@ public class Beneficiary {
 	private String bfirstName;
 	@Column(name="BLastName")
 	private String lastName;
-	@Column(name="BUserName", unique=true, nullable=false)
+	@Column(name="username", unique=true, nullable=false)
 	private String username;
 	@Column(name="Password", nullable=false)
 	private String password;
