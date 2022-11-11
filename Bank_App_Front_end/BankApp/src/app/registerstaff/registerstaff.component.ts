@@ -43,7 +43,7 @@ export class RegisterstaffComponent implements OnInit {
     if(this.user.username!='' && this.user.username!=null && this.user.username.length>=4){
       this.addUser();
       //this.router.navigate(['/dashboard'])
-      this.router.navigate([''])
+      this.router.navigate(['viewstaff'])
       }
       //this.signupService.createuserlist(this.user)
       //Here logic will be there Develop your application can add logic here to call API Hit
