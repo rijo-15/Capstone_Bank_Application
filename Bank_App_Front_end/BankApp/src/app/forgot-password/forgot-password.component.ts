@@ -55,7 +55,7 @@ export class ForgotPasswordComponent implements OnInit {
           this.ack="Username doesn't exsist"
           break;
          }if(this.user.securityQuestion != this.users[i].securityQuestion){
-          this.ack="Wrong Anwer"
+          this.ack="Wrong Answer"
           break;
          }
          else {

@@ -65,7 +65,7 @@ return this.currentUser;
             username: this.users[i].userName
            }; */
            console.log("success")     
-           this.router.navigate(['/dashboard']);
+           this.router.navigate(['/userdashboard']);
            break;
          } if(this.user.username != this.users[i].userName){
           this.ack="Username doesn't exsist"
