@@ -1,49 +1,13 @@
-<p>removebeneficiary works!</p>
+
 <head>
   <style>
-div.leftbox {
-width: 300px;
-height: 500px;
-border: 10px solid green;
-padding: 10px;
-margin: 10px;
-float:left;
-font-weight: bold;
-font-size: larger;
-width:300px;
-}
-div.rightbox{
-width: 300px;
-height: 500px;
-border: 10px solid green;
-padding: 10px;
-margin: 10px;
-width:450px;
-float:right;
-}
-div.thick {
-font-weight: bold;
-font-size: larger;
-}
-table, th, td {
-border: 1px solid;
-}
+
   </style>
 </head>
- 
-<h1 style="text-align: center;">
-    Dashboard
-</h1>
-<div class="leftbox">
-  <a href="createaccount"><ul style = "height: 75px;">Create Account</ul></a>
-  <a href="addbeneficiary"><ul style = "height: 75px;" >Add Beneficiary</ul></a>
-  <a href="removebeneficiary"><ul style = "height: 75px;">Remove Beneficiary</ul></a>
-  <a href="transfermoney"><ul style = "height: 75px;">Transfer Money</ul></a>
-  <a href="dashboard"><ul style = "height: 75px;" > View Statement</ul></a>
-</div>
-<div class="rightbox">
-  <td> <button class="btn btn-danger btn-rounded" (click)="readUser()">Display Beneficiaries</button></td>
-  <h1>List of Beneficiaries is here</h1>
+
+
+  <td> <button (click)="readUser()">Display Beneficiaries</button></td>
+  <h1 style="color: green; margin-left:270px; ">List of Beneficiaries is here</h1>
   <table style="width:100%">
       <tr>
           <th scope="col">#</th>
@@ -59,8 +23,8 @@ border: 1px solid;
           <td>{{beneficiary.lastName}}</td>
           <td>{{beneficiary.ssn}}</td>
           <td>{{beneficiary.bid}}</td>
-          <td> <button class="btn btn-danger btn-rounded" (click)="deleteUser(beneficiary.bid, beneficiary.customerId)"> Delete User</button></td>
+          <td> <button class="btn" (click)="deleteUser(beneficiary.bid, beneficiary.customerId)"> Delete User</button></td>
    
       </tr>
   </table>
-</div>
+

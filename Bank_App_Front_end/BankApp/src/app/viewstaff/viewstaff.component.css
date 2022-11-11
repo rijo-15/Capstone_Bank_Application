@@ -1,9 +1,27 @@
 table{
     table-layout: fixed;
-}
-table, th, td{
-    border: 1px solid lightgray;  
-    width:80%;
     margin-left: auto;
     margin-right: auto;
+    width:80%;
+    border-collapse: collapse;
+}
+table, th, td{
+    border: 1px solid lightgray;
+    
 } 
+th, td{
+    padding: 12px; 
+}
+button{
+    font-size: large;
+    padding: 12px 28px;
+    background-color: aquamarine;
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(23, 104, 23);
+}
+  button:hover{
+    background-color: rgb(83, 175, 83);
+    cursor: pointer;
+
+  }

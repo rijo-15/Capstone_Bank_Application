@@ -16,12 +16,17 @@ export class LoginComponent implements OnInit {
  ack: any;
  user: User = new User();
  users: any;
+ pak: any; 
+// currentUser: User | any;
  constructor(private signupService: LoginService, private router: Router) { }
  
  ngOnInit(): void {
-   this.ack = "Please type the Id and Dept!"
+   
  }
- 
+ /*
+get userr(): User{
+return this.currentUser;
+}*/
  profileForm = new FormGroup({
  
    username: new FormControl('', [Validators.required, Validators.minLength(4)]),
@@ -55,13 +60,27 @@ export class LoginComponent implements OnInit {
          console.log("Hi Rijo", this.users[i].userName); //use i instead of 0
          if (this.user.username == this.users[i].userName && this.user.password == this.users[i].password) {
            // this.loginack = "Record added successfully";
-           console.log("success")
+          /* this.currentUser = {
+            
+            username: this.users[i].userName
+           }; */
+           console.log("success")     
            this.router.navigate(['/dashboard']);
            break;
-         } else {
+         } if(this.user.username != this.users[i].userName){
+          this.ack="Username doesn't exsist"
+          break;
+         }if(this.user.password != this.users[i].password){
+          this.ack="Inncorrect Password"
+          break;
+         }
+
+         else {
  
            // this.router.navigate(['']);
-           this.ack = "Id or Password Incorrect!"
+           this.ack = " Wrong username and password"
+           
+           
  
          }
        }

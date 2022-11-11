@@ -6,7 +6,7 @@
     background-color: rgb(238, 238, 238);
     color: black;
     display: block;
-    padding: 6px;
+    padding: 9px;
     text-decoration: none;
     font-size: 20px;
   }
@@ -31,19 +31,9 @@
     background-color: rgb(23, 104, 23);
 }
   button:hover{
-    background-color: rgb(70, 187, 70);
+    background-color: rgb(77, 183, 77);
     cursor: pointer;
 
   }
-  table{
-    table-layout: fixed;
-    margin-left: auto;
-    margin-right: auto;
-    width:100%;
-    border-collapse: collapse;
-}
-table, th, td{
-    border: 1px solid lightgray;
-    
-} 
+ 
   

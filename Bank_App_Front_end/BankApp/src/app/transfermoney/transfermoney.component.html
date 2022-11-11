@@ -1,34 +1,34 @@
-<p>transfermoney works!</p>
+
 <head>
-    <style>
-div {
-  width: 300px;
-  height: 500px;
-  border: 10px solid green;
-  padding: 10px;
-  margin: 10px;
-}
-div.thick {
-  font-weight: bold;
-  font-size: larger;
-}
-table, th, td {
-  border: 1px solid;
-}
-    </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+
+  </style>
 </head>
 
-<h1 style="text-align: center;">
-    Dashboard
-</h1>
 
-<div style="width:300px; float:left; font-weight: bold; font-size: larger;">
-    <a href="createaccount"><ul style = "height: 75px;">Create Account</ul></a>
-    <a href="addbeneficiary"><ul style = "height: 75px;" >Add Beneficiary</ul></a>
-    <a href="removebeneficiary"><ul style = "height: 75px;">Remove Beneficiary</ul></a>
-    <a href="transfermoney"><ul style = "height: 75px;">Transfer Money</ul></a>
-    <a href="viewstatement"><ul style = "height: 75px;" > View Statement</ul></a>
-</div>
-<div style="width:450px; float:right;">
+<form [formGroup]="profileForm" (ngSubmit)="submit()">
+  <!-- <form action="action_page.php" method="post"> -->
 
-</div>
+    <h1 style="color: green; margin-left:270px; ">Transfer Money</h1><br>
+      <div>
+        <h4>Enter From Account Number</h4>
+        <input type="text" placeholder="Enter From Account Number" name="fromAccNumber" required formControlName="fromAccNumber">
+        <br><br>
+        <h4>Enter To Account Number</h4>
+        <input type="text" placeholder="Enter To Account Number" name="toAccNumber" required formControlName="toAccNumber">
+        <br><br>
+        <h4>Enter Amount</h4>
+        <input type="text" placeholder="Enter Amount" name="amount" required formControlName="amount">
+        <br><br>
+        <h4>Enter Reason</h4>
+        <input type="text" placeholder="Enter Reason" name="reason" required formControlName="reason">
+        <br><br>
+        
+          <button type="submit">Submit</button><br>
+        
+        
+      </div>
+             
+         
+</form>
