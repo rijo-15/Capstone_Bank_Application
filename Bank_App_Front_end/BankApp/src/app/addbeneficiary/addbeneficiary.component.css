@@ -1,0 +1,40 @@
+button{
+    font-size: large;
+    padding: 12px 28px;
+    background-color: aquamarine;
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(23, 104, 23);
+    margin-left: 70px;
+    width: 150px;
+}
+  button:hover{
+    background-color: rgb(77, 183, 77);
+    cursor: pointer;
+
+  }
+  input{
+    text-align: center;
+    width: 110%;
+    padding: 4px;
+  }
+  div{
+    
+    margin-left: 260px;
+  }
+  table{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+}
+tr{
+padding: auto;
+}
+td{
+    text-align: center;
+    
+}
+th, td, tr{
+    padding: 22px; 
+    font-size: large;
+}

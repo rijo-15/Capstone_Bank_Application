@@ -1,0 +1,25 @@
+button{
+    font-size: large;
+    padding: 12px 28px;
+    background-color: aquamarine;
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(23, 104, 23);
+    margin-left: 70px;
+    width: 150px;
+}
+  button:hover{
+    background-color: rgb(77, 183, 77);
+    cursor: pointer;
+
+  }
+  input{
+    text-align: center;
+    width: 40%;
+    padding: 2px;
+  }
+  div{
+    
+    margin-left: 260px;
+  }
+ 

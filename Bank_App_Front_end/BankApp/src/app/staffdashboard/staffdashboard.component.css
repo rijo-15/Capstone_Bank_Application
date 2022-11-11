@@ -8,6 +8,7 @@
     display: block;
     padding: 57px;
     text-decoration: none;
+    height: 80%;
   }
   
   .vertical-menu a:hover {
@@ -15,7 +16,7 @@
   }
   
   .vertical-menu a.active {
-    background-color: #04AA6D;
+    background-color: #137199;
     color: white;
   }
   div{

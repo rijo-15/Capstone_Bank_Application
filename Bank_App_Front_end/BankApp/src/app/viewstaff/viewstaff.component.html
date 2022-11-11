@@ -6,11 +6,11 @@
     <body>
         <button class="btn btn-danger btn-rounded" (click)="readStaff()"> Display Staff</button>
         <table>
-            <tr>
-                <td>Staff Id</td>
-                <td>Username</td>
-                <td>First Name</td>
-                <td>Last Name</td>
+            <tr style="text-align: left; font-size: 20px; color: green;">
+                <th>Staff Id</th>
+                <th>Username</th>
+                <th>First Name</th>
+                <th>Last Name</th>
               
             </tr>
             <tr *ngFor="let user of users">

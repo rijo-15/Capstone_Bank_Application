@@ -24,8 +24,8 @@ export class RegisterstaffComponent implements OnInit {
   profileForm = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.minLength(4)]),
     password: new FormControl('', [Validators.required,Validators.minLength(4)]),
-    fname: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    lname: new FormControl('', [Validators.required,Validators.minLength(4)])
+    fname: new FormControl('', [Validators.required]),
+    lname: new FormControl('', [Validators.required])
     
   });
   get f(){
