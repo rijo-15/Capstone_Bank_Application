@@ -1,0 +1,39 @@
+.vertical-menu {
+    width: 300px;
+  }
+  
+  .vertical-menu a {
+    background-color: rgb(238, 238, 238);
+    color: black;
+    display: block;
+    padding: 9px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .vertical-menu a:hover {
+    background-color: rgb(116, 189, 123);
+  }
+  
+  .vertical-menu a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  div{
+    float:left;
+  }
+  button{
+    font-size: large;
+    padding: 12px 28px;
+    background-color: aquamarine;
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(23, 104, 23);
+}
+  button:hover{
+    background-color: rgb(77, 183, 77);
+    cursor: pointer;
+
+  }
+ 
+  

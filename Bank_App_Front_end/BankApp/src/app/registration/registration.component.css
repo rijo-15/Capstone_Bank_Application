@@ -1,7 +1,7 @@
 div{
     background-color: whitesmoke;
-    width: 900px;
-    height: 760px;
+    width: 650px;
+    height: 600px;
     margin-left: auto; 
     margin-right: auto;
 }
@@ -12,16 +12,20 @@ form{
    
 }
 input{
-    padding: 10px;
+    padding: 1px;
      border: 1px solid #ccc;
      border-radius: 4px;
    }
    button{
-    padding: 10px;
+    padding: 8px;
     width: 150px;
     border: 1px solid #ccc;
     background-color: #24a0ed;
     border-radius: 4px;
+  }
+  button:hover{
+    background-color: #0c5989;
+    cursor: pointer;
   }
   table{
     margin-left: auto; 

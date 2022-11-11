@@ -16,6 +16,7 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import { RegisterstaffComponent } from './registerstaff/registerstaff.component';
 import { ViewstaffComponent } from './viewstaff/viewstaff.component';
 import { StaffdashboardComponent } from './staffdashboard/staffdashboard.component';
+import { UserdashboardComponent } from './userdashboard/userdashboard.component';
 
 const routes: Routes = [
   { path: 'registration', component: RegistrationComponent},
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path: 'admindashboard', component:AdmindashboardComponent},
   {path: 'registerstaff', component:RegisterstaffComponent},
   {path: 'viewstaff', component:ViewstaffComponent},
-  {path: 'staffdashboard', component:StaffdashboardComponent}
+  {path: 'staffdashboard', component:StaffdashboardComponent},
+  {path: 'userdashboard', component:UserdashboardComponent}
 ];
 
 @NgModule({

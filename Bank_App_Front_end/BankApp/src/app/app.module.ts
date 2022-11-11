@@ -23,6 +23,11 @@ import { ViewstaffComponent } from './viewstaff/viewstaff.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StaffdashboardComponent } from './staffdashboard/staffdashboard.component';
+import { UserdashboardComponent } from './userdashboard/userdashboard.component';
+import { ApprovebeneficiaryComponent } from './approvebeneficiary/approvebeneficiary.component';
+import { ViewaccountComponent } from './viewaccount/viewaccount.component';
+import { TransferpageComponent } from './transferpage/transferpage.component';
+
 
 
 @NgModule({
@@ -47,6 +52,11 @@ import { StaffdashboardComponent } from './staffdashboard/staffdashboard.compone
     RegisterstaffComponent,
     ViewstaffComponent,
     StaffdashboardComponent,
+    UserdashboardComponent,
+    ApprovebeneficiaryComponent,
+    ViewaccountComponent,
+    TransferpageComponent,
+    
     
   ],
   imports: [

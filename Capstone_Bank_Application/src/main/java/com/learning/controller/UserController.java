@@ -226,47 +226,48 @@ public class UserController {
 	      }
 	      
 	  
-	  
-	  //Eleventh Method 
-	  @PutMapping("/transfer")
-		public Payload transfer(@RequestBody Payload payload) {
-	   	 long fromAccNumber = payload.getFromAccNumber();
-	   	 long toAccNumber = payload.getToAccNumber();
-	   	 
-	   	 //System.out.println("fromAccNumber: " + fromAccNumber);
-	   	 
-	   	 //checks if both accounts exist
-	   	 if(accountRepo.findById(fromAccNumber).isPresent()
-	   			 && accountRepo.findById(toAccNumber).isPresent())
-	   	 {
-	   		  Account fromAcc = accountRepo.findById(fromAccNumber)
-	  				   .orElseThrow(() -> new RuntimeException("Sorry from account with ID: " + fromAccNumber + " not found."));
-	   		 
-	   		  Account toAcc = accountRepo.findById(toAccNumber)
-	 					   .orElseThrow(() -> new RuntimeException("Sorry to account with ID: " + toAccNumber + " not found."));
-	   		 
-	   		 
-	   		  long customerId = payload.getByCustomerId();
-	   		 
-	   		  //checks if account belongs to customer
-	   		  if(fromAcc.getCustomerId() == customerId &&
-	   					  toAcc.getCustomerId() == customerId)
-	   		  {
-	   			  double amountTransfer = payload.getAmount();
-	   			 
-	   			  fromAcc.setAccountBalance(fromAcc.getAccountBalance() - amountTransfer);
-	   			  toAcc.setAccountBalance(toAcc.getAccountBalance() + amountTransfer);
+	  //Eleventh Method
+	      @PutMapping("/transfer")
+	   	 public Payload transfer(@RequestBody Payload payload) {
+	      	  long fromAccNumber = payload.getFromAccNumber();
+	      	  long toAccNumber = payload.getToAccNumber();
+	      	 
+	      	  //System.out.println("fromAccNumber: " + fromAccNumber);
+	      	 
+	      	  //checks if both accounts exist
+	      	  if(accountRepo.findById(fromAccNumber).isPresent()
+	      			  && accountRepo.findById(toAccNumber).isPresent())
+	      	  {
+	      		   Account fromAcc = accountRepo.findById(fromAccNumber)
+	     					.orElseThrow(() -> new RuntimeException("Sorry from account with ID: " + fromAccNumber + " not found."));
+	      		 
+	      		   Account toAcc = accountRepo.findById(toAccNumber)
+	        					.orElseThrow(() -> new RuntimeException("Sorry to account with ID: " + toAccNumber + " not found."));
+	      		 
+	      		 
+	      		   long customerId = payload.getByCustomerId();
+	      		 
+	      		   //commented out the if statement so customer can transfer from ad to any account
+	      		   //even if customer does own account
+	      		   //checks if account belongs to customer
+	      		   //if(fromAcc.getCustomerId() == customerId && toAcc.getCustomerId() == customerId)
+	      		   //{
+	      			   double amountTransfer = payload.getAmount();
+	      			 
+	      			   fromAcc.setAccountBalance(fromAcc.getAccountBalance() - amountTransfer);
+	      			   toAcc.setAccountBalance(toAcc.getAccountBalance() + amountTransfer);
 
-	   			  accountRepo.save(fromAcc);
-	   			  accountRepo.save(toAcc);
-	   			 
-	   			  return payload;
-	   		  }
-	 
+	      			   accountRepo.save(fromAcc);
+	      			   accountRepo.save(toAcc);
+	      			 
+	      			   return payload;
+	      		   //}
+	    
+	      	  }
+	      	 
+	      	  return null;
 	   	 }
 	   	 
-	   	 return null;
-		}
 		
 
 	  
