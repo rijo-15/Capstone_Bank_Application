@@ -3,13 +3,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { User } from '../user';
- 
+
 @Component({
  selector: 'app-forgot-password',
  templateUrl: './forgot-password.component.html',
  styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
+
  
  ack: any;
  user: User = new User();
@@ -54,7 +55,7 @@ export class ForgotPasswordComponent implements OnInit {
           this.ack="Username doesn't exsist"
           break;
          }if(this.user.securityQuestion != this.users[i].securityQuestion){
-          this.ack="Wrong Anwer"
+          this.ack="Wrong Answer"
           break;
          }
          else {

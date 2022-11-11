@@ -3,13 +3,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { User } from '../user';
- 
+
 @Component({
  selector: 'app-updatepassword',
  templateUrl: './updatepassword.component.html',
  styleUrls: ['./updatepassword.component.css']
 })
 export class UpdatepasswordComponent implements OnInit {
+
  
  ack: any;
  user: User = new User();

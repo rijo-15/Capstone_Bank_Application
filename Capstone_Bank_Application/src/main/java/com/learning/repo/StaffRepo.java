@@ -20,5 +20,9 @@ public interface StaffRepo extends JpaRepository<Staff, Long> {
 	@Query(value = "SELECT u FROM User u WHERE u.id=:id")
 	public User getCustomerById(@Param("id") long id);
 	
-	
+	/*
+	 * @Modifying
+	 * @Query(value = "update s FROM staff s WHERE s.id=:id")
+	   public User getCustomerById(@Param("id") long id);
+	 */
 }

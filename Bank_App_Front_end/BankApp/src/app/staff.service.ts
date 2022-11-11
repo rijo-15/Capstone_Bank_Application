@@ -19,4 +19,8 @@ export class StaffService {
   getstaffList(): Observable<any>{
     return this.http.get(`${this.baseUrl}` + '/api/admin/getstaffs');
   }
+  enableadmin(user: any): Observable<any>{
+    return this.http.put(`${this.baseUrl}` + '/api/admin/updatestaff',user );
+
+  }
 }

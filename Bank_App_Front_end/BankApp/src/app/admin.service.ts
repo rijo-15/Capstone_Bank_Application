@@ -16,6 +16,7 @@ export class AdminService {
   }
   //for admin login purposes
   getadminList(): Observable<any>{
-    return this.http.get(`${this.baseUrl}` + 'api/admin/getadmin');
+    return this.http.get(`${this.baseUrl}` + '/api/admin/getadmin');
   }
+  
 }
