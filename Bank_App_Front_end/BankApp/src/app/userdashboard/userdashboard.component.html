@@ -1,0 +1,40 @@
+<head>
+    <script>
+        /*
+        const btn = document.getElementById('btn');
+
+        btn.addEventListener('click', function onClick(event)
+        {
+            document.a.style.backgroundColor="yellow";
+        });
+*/
+        </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+
+body{
+      background-image: url("/assets/images/choice1.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    </style>
+</head>
+<app-header></app-header>
+ <body>
+<h1 style="text-align: center;"> Customer Dashboard</h1> 
+<hr>
+<div class="vertical-menu">    
+   
+    <a href="createaccount" class="btn" target="iframe_display"><ul style = "height: 75px;">Create Account</ul></a>
+    <a href="addbeneficiary" class="btn" target="iframe_display"><ul style = "height: 75px;" >Add Beneficiary</ul></a>
+    <a href="removebeneficiary" class="btn" target="iframe_display"><ul style = "height: 75px;">Remove Beneficiary</ul></a>
+    <a href="transfermoney" class="btn" target="iframe_display"><ul style = "height: 75px;">Transfer Money</ul></a>
+    <a href="dashboard" class="btn" target="iframe_display"><ul style = "height: 75px;" > View Statement</ul></a>
+  </div>
+  <div style="margin-left: auto; margin-right: auto;">
+    <iframe height="550" width="1090px" name="iframe_display">
+
+    </iframe>
+</div>
+<hr>
+</body>

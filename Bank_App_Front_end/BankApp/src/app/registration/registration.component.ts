@@ -33,15 +33,15 @@ profileForm = new FormGroup({
  userName: new FormControl('', [Validators.required, Validators.minLength(4)]),
  password: new FormControl('', [Validators.required,Validators.minLength(4)]),
 //  userid: new FormControl('', )
- ssn : new FormControl('', [Validators.required,Validators.minLength(4)]),
- firstName: new FormControl('', [Validators.required,Validators.minLength(4)]),
- lastName: new FormControl('', [Validators.required,Validators.minLength(4)]),
+ ssn : new FormControl('', [Validators.required]),
+ firstName: new FormControl('', [Validators.required]),
+ lastName: new FormControl('', [Validators.required]),
  //username: any;
  //password: any;
- email : new FormControl('', [Validators.required,Validators.minLength(4)]),
- phone : new FormControl('', [Validators.required,Validators.minLength(4)]),
+ email : new FormControl('', [Validators.required,]),
+ phone : new FormControl('', [Validators.required,]),
  role: new FormControl('', [Validators.required,Validators.minLength(4)]),
- securityQuestion: new FormControl('', [Validators.required,Validators.minLength(4)])
+ securityQuestion: new FormControl('', [Validators.required,])
  //dept: new FormControl('', [Validators.required]),
  //salary: new FormControl('', [Validators.required]),
  
@@ -80,6 +80,7 @@ console.log("Amit",this.user.userName);
  //this.router.navigate(['/dashboard'])
  this.router.navigate([''])
  }
+ 
  //this.signupService.createuserlist(this.user)
  //Here logic will be there Develop your application can add logic here to call API Hit
  

@@ -7,7 +7,7 @@
         <br>
         <div>
 <form [formGroup]="profileForm" (ngSubmit)="submit()" >
-    <h2 style="text-align: center;">Add Staff</h2>
+    <h2 style="text-align: center; color:green;">Add Staff</h2>
     <table>
        
         <tr>
@@ -28,7 +28,14 @@
             <td><input  type="password" placeholder="Re Enter Password" name="password" formControlName="password"/></td>
         </tr> -->
         <tr>
-            <td>
+            <td colspan="2"style="color: red;"*ngIf="f['username'].errors?.['minlength']" [ngClass] = "'error'">username length must be 4</td>
+            
+        </tr>
+        <tr>
+            <td colspan="2"style="color: red;"*ngIf="f['password'].errors?.['minlength']" [ngClass] = "'error'">password length must be 4</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
                 <button type="submit">Create</button>
             </td>
         </tr>

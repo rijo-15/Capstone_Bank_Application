@@ -1,46 +1,45 @@
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
-div {
-  width: 300px;
-  height: 500px;
-  border: 10px solid green;
-  padding: 10px;
-  margin: 10px;
-}
-div.thick {
-  font-weight: bold;
-  font-size: larger;
-}
-table, th, td {
-  border: 1px solid;
-}
+
+    
     </style>
 </head>
- 
-<h1 style="text-align: center;">
-    Dashboard
-</h1>
- 
+
+ <body>
+    <!-- 
+<h1 style="text-align: center;"> Dashboard</h1>
+<div class="vertical-menu">    
+    <br><br>
+    <a href="createaccount" target="iframe_display"><ul style = "height: 75px;">Create Account</ul></a>
+    <a href="addbeneficiary" target="iframe_display"><ul style = "height: 75px;" >Add Beneficiary</ul></a>
+    <a href="removebeneficiary" target="iframe_display"><ul style = "height: 75px;">Remove Beneficiary</ul></a>
+    <a href="transfermoney" target="iframe_display"><ul style = "height: 75px;">Transfer Money</ul></a>
+    <a href="dashboard" target="iframe_display"><ul style = "height: 75px;" > View Statement</ul></a>
+  </div>
+
         <div style="width:300px; float:left; font-weight: bold; font-size: larger;">
             <a href="createaccount"><ul style = "height: 75px;">Create Account</ul></a>
             <a href="addbeneficiary"><ul style = "height: 75px;" >Add Beneficiary</ul></a>
             <a href="removebeneficiary"><ul style = "height: 75px;">Remove Beneficiary</ul></a>
             <a href="transfermoney"><ul style = "height: 75px;">Transfer Money</ul></a>
             <a href="dashboard"><ul style = "height: 75px;" > View Statement</ul></a>
-        </div>
-        <div style="width:450px; float:right;">
-            <td> <button class="btn btn-danger btn-rounded" (click)="readUser()">Display Accounts</button></td>
-            <h1>List of All the data is here</h1>
-            <table style="width:100%">
-                <tr>
+        </div> -->
+<br>
+            <table>
+            <tr>
+                <td colspan="4" style="text-align: center;"> <button (click)="readUser()">Display Accounts</button></td>
+            </tr>
+            <tr>
+                <td colspan="4" style="text-align: center;"> <h1>List of All the data is here</h1></td>
+            </tr>
+           
+                <tr style="color: green;">
                     <th scope="col">#</th>
                 <th>Account Number for customer 1</th>
                 <th>Account Balance</th>
-                <th>Account Type</th>
-           
-           
-           
-                </tr>
+                <th>Account Type</th>        
+                 </tr>
                 <tr *ngFor="let user of users">
                     <th scope="row">#</th>
                     <td>{{user.accountNumber}}</td>
@@ -48,8 +47,10 @@ table, th, td {
                     <td>{{user.accountType}}</td>
                 </tr>
             </table>
-        </div>
         
-
+        
+    </body>
+           
+            
 
        

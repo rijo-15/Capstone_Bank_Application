@@ -1,19 +1,26 @@
 
     <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+         body{
+      background-image: url("/assets/images/choice1.jpg");
+      background-repeat: no-repeat;
+      background-color: #cccccc;
+      background-size: cover;
+    }
+    </style>
     </head>
     <app-header></app-header>
     <body>
-        <br><br>
-        <div>
-            
+     <br>
+        <div>   
         <form [formGroup]="profileForm" (ngSubmit)="submit()">
             <br>
             <h4 style="text-align: center; color: rgb(222, 42, 42);">Please fill the form to Register</h4>
             <table>
                 <tr>
                     <td class="label"> First Name</td>
-                    <td><input type="text" placeholder="Enter First Name" name="firstName" formControlName="firstName"></td>
+                    <td><input type="text" placeholder="Enter First Name" name="firstName" formControlName="firstName" required></td>
                 </tr>
                 <br>
                 <tr>
@@ -23,17 +30,17 @@
                 <br>
                 <tr>
                     <td class="label"> Username</td>
-                    <td><input type="text" placeholder="Enter username" name="userName" required formControlName="userName"></td>
+                    <td><input type="text" placeholder="Enter username" name="userName" required formControlName="userName" required></td>
                 </tr>
                 <br>
                 <tr>
                     <td class="label">Password</td>
-                    <td><input type="password" placeholder="Enter password" name="password" formControlName="password"></td>
+                    <td><input type="password" placeholder="Enter password" name="password" formControlName="password" required></td>
                 </tr>
                 <br>
                 <tr>
                     <td class="label">Email</td>
-                    <td> <input type="text" placeholder="Enter email" name="email" formControlName="email"></td>
+                    <td> <input type="text" placeholder="Enter email" name="email" formControlName="email" ></td>
                 </tr>
                 <br>
                 <tr>
@@ -43,7 +50,7 @@
                 <br>
                 <tr>
                     <td class="label">SSN</td>
-                    <td><input type="text" placeholder="Enter SSN" name="ssn" formControlName="ssn"><br><br></td>
+                    <td><input type="text" placeholder="Enter SSN" name="ssn" formControlName="ssn" required><br><br></td>
                 </tr>
                 <tr>
                     
@@ -62,23 +69,22 @@
                 <br>
                 <tr>
                     <td class="label">Security Answer</td>
-                    <td><input type="text" placeholder="Enter Security Answer" name="securityQuestion" formControlName="securityQuestion"></td>   
+                    <td><input type="text" placeholder="Enter Security Answer" name="securityQuestion" formControlName="securityQuestion" required></td>   
+                </tr>
+                <tr>
+                    <td colspan="2"style="color: red;"*ngIf="f['userName'].errors?.['minlength']" [ngClass] = "'error'">username length must be 4</td>
+                    
                 </tr>
                 <br>
                 <tr>
-                    <td></td>
-                    <td><button type="submit">Register</button></td> 
-                </tr>
-                
-                <tr>
-            
+                    <td colspan="2"><button type="submit">Register</button></td> 
                 </tr>
                 
             </table>
         
         </form>
     </div>
-    <br><br>
+    <br>
 
     </body>
     <app-footer></app-footer>
