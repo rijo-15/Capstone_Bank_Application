@@ -32,6 +32,7 @@ stafflogin(){
 
   console.log("username", this.user.username);
   console.log("password", this.user.password);
+  
   if(this.user.username == "admin@admin.com" && this.user.password =="secret@123"){
     console.log("sucessfully logged in!")
     this.router.navigate(['/admindashboard']);
