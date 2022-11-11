@@ -30,6 +30,11 @@ export class LoginService {
    return this.http.delete(`${this.baseUrl}` + `/api/employee/deleteemployee/`+ `${id}`, {responseType: 'text'});  //will change
  
  }
+
+ updatepass(userName: any): Observable<any>{
+
+  return this.http.put(`${this.baseUrl}` + `/api/employee/updatepass/`+ `${userName}`, {responseType: 'text'}); 
+ }
  
  
 }

@@ -9,5 +9,7 @@ export class User {
     phone : any;
     role: any;
     securityQuestion: any;
+  password1: any;
+  password2: any;
  }
  
