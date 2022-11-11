@@ -22,3 +22,6 @@ li a:hover{
 li.left{
     float:center;
 }
+.link:hover{
+        color: blue;
+}

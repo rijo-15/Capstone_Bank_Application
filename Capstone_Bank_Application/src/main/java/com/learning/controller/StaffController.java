@@ -93,21 +93,28 @@ public class StaffController {
 	
 	
 	
-	//Third Method 
+	//Third Method
 	//PUT("/api/staff/beneficiary)
-	
-	@PutMapping("/beneficiary")
-	public ResponseEntity<Beneficiary> approveBeneficiary(@PathVariable("id") long id, @RequestBody Beneficiary beneficiary){
-		Beneficiary updateBeneficiary = beneficiaryRepo.findById(id)
-				.orElseThrow(() -> new RuntimeException("not found")); 
+	 @PutMapping("/beneficiary")
+	    public ResponseEntity<Beneficiary> approveBeneficiary(@RequestBody Beneficiary beneficiary){
+	   	 Beneficiary updateBeneficiary = beneficiaryRepo.findById(beneficiary.getBId())
+	   			 .orElseThrow(() -> new RuntimeException("not found"));
+	   	 
+	   	 updateBeneficiary.setApproved(beneficiary.getApproved());
+	   	 
+	   	 beneficiaryRepo.save(updateBeneficiary);
+	   	 return ResponseEntity.ok(updateBeneficiary);
+	   	 
+	   	 
+	    }
+	 //Get("/api/staff/beneficiary")
+	    @GetMapping("/beneficiary")
+	    List<Beneficiary> getUser(){
+	   	 return beneficiaryRepo.findAll();
+	    }
 		
-		updateBeneficiary.setApproved(beneficiary.getApproved()); 
-		
-		beneficiaryRepo.save(updateBeneficiary);
-		return ResponseEntity.ok(updateBeneficiary); 
-		
-		
-	}
+  
+
 	
 	//Fouth Method 
 	//Get("/api/staff/accounts/approve")
