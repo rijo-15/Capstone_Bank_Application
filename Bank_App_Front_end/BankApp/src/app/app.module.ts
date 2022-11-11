@@ -29,6 +29,7 @@ import { ViewaccountComponent } from './viewaccount/viewaccount.component';
 import { TransferpageComponent } from './transferpage/transferpage.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,7 @@ import { TransferpageComponent } from './transferpage/transferpage.component';
     ApprovebeneficiaryComponent,
     ViewaccountComponent,
     TransferpageComponent,
+    
     
   ],
   imports: [
